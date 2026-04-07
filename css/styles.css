@@ -1,0 +1,430 @@
+/*
+ * ═══════════════════════════════════════════════════════════════
+ *  Lumora Store — css/styles.css
+ *  Estilos personalizados y componentes reutilizables
+ *
+ *  NOTA: Este proyecto usa Tailwind CSS via CDN para desarrollo.
+ *  Para producción, compila con:
+ *    npm install -D tailwindcss
+ *    npx tailwindcss -i ./css/input.css -o ./css/styles.css --minify
+ *
+ *  Este archivo define componentes y utilidades que complementan
+ *  las clases de Tailwind usadas en el HTML.
+ * ═══════════════════════════════════════════════════════════════
+ */
+
+/* ─── Variables CSS (Design Tokens) ─── */
+:root {
+  /* Colores Identitarios */
+  --color-primary:       #FF0000; /* El rojo vibrante del logo */
+  --color-primary-dark:  #CC0000; /* Rojo más intenso para hover */
+  --color-primary-light: #FFE5E5; /* Rojo muy suave para fondos de alerta o detalles */
+
+  /* Neutros de Alto Contraste */
+  --color-neutral-900:   #000000; /* El negro sólido de "BRUM PA" */
+  --color-neutral-800:   #1A1A1A; /* Gris casi negro para textos secundarios */
+  --color-neutral-600:   #4B5563; /* Gris para textos informativos */
+  
+  /* Superficies y Fondos */
+  --color-neutral-100:   #F4F4F4; /* Fondo gris claro para secciones */
+  --color-neutral-50:    #FFFFFF; /* Blanco puro para limpieza visual */
+  --color-cream:         #FAFAFA; /* Un blanco roto sutil */
+
+  /* UI Tokens */
+  --radius-btn: 4px;
+  --transition-base: 0.3s ease;
+}
+
+/* ─── Reset y base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-neutral-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scroll suave para anclas */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Altura del header sticky */
+}
+
+/* ─────────────────────────────────────────────
+   COMPONENTES REUTILIZABLES
+───────────────────────────────────────────── */
+
+/* ── Botón Primario ──
+   Uso: <button class="btn-primary">Texto</button>
+   Para conectar con framework: añadir @click o similar
+*/
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-btn);
+  transition: background-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 4px 14px rgba(14, 165, 164, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ── Botón Outline ── */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-neutral-800);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-btn);
+  border: 2px solid var(--color-neutral-800);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-neutral-900);
+  color: #ffffff;
+  border-color: var(--color-neutral-900);
+  transform: translateY(-1px);
+}
+
+.btn-outline:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ── Badges de producto ──
+   .badge-new  → Nuevo
+   .badge-sale → Oferta/Descuento
+*/
+.badge-new {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.badge-sale {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+/* ── Chip de filtro ──
+   Uso: <button class="chip-filter">Categoría</button>
+*/
+.chip-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  border: 1.5px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #6b7280;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.chip-filter:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.chip-filter.active,
+.chip-filter[aria-pressed="true"] {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.chip-filter:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Cart badge animación ── */
+.cart-badge {
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-badge.bump {
+  animation: badge-bump 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes badge-bump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* ─────────────────────────────────────────────
+   PRODUCT CARD
+   .product-card → contenedor principal
+   Los overlays usan clases Tailwind directamente
+───────────────────────────────────────────── */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: #ffffff;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-med),
+              transform var(--transition-med);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* ─────────────────────────────────────────────
+   TOAST NOTIFICATIONS
+   Generadas dinámicamente por main.js
+───────────────────────────────────────────── */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  min-width: 240px;
+  max-width: 340px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  animation: toast-in 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  backdrop-filter: blur(8px);
+}
+
+.toast.toast-success {
+  background: rgba(255,255,255,0.96);
+  border-left: 3px solid var(--color-primary);
+  color: var(--color-neutral-800);
+}
+
+.toast.toast-warning {
+  background: rgba(255,255,255,0.96);
+  border-left: 3px solid #f59e0b;
+  color: var(--color-neutral-800);
+}
+
+.toast.toast-info {
+  background: rgba(255,255,255,0.96);
+  border-left: 3px solid #3b82f6;
+  color: var(--color-neutral-800);
+}
+
+.toast.toast-error {
+  background: rgba(255,255,255,0.96);
+  border-left: 3px solid #ef4444;
+  color: var(--color-neutral-800);
+}
+
+.toast-dismissing {
+  animation: toast-out 250ms ease forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: 80px;
+    margin-bottom: 0.5rem;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   MODAL OVERLAY
+   Para lightbox de imágenes
+───────────────────────────────────────────── */
+#image-modal {
+  animation: modal-fade-in 200ms ease forwards;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────
+   INPUTS ESTILIZADOS
+───────────────────────────────────────────── */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* Selects estilizados */
+select.styled-select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+/* ─────────────────────────────────────────────
+   FILTROS DE PRODUCTO
+───────────────────────────────────────────── */
+/* Los artículos ocultos por filtro */
+.product-card.hidden-by-filter {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────
+   ACCESIBILIDAD — Focus states visibles
+───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Eliminar outline por defecto solo si hay foco por teclado visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR personalizado (navegadores WebKit)
+───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ─────────────────────────────────────────────
+   UTILIDADES EXTRA
+───────────────────────────────────────────── */
+/* Transición suave al filtrar productos */
+.products-grid-transition > * {
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Shimmer/skeleton loading (para uso futuro con API) */
+@keyframes shimmer {
+  0%   { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE HELPERS
+───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+/*
+ * ─────────────────────────────────────────────────────────
+ *  NOTAS PARA INTEGRACIÓN CON BACKEND (Laravel/API REST)
+ * ─────────────────────────────────────────────────────────
+ *  1. Carrito: reemplazar localStorage en main.js por
+ *     llamadas a /api/cart (GET, POST, PUT, DELETE)
+ *
+ *  2. Productos: el grid se genera desde una API
+ *     GET /api/products?filter=new&sort=popular
+ *     Renderizar con JS o Blade templates
+ *
+ *  3. Cupones: POST /api/coupons/validate { code }
+ *     → { valid: true, discount: 0.10, message: "..." }
+ *
+ *  4. Imágenes: mover de /assets/images/ a storage de Laravel
+ *     y usar Storage::url() en las rutas
+ *
+ *  5. Para producción: compilar Tailwind y minificar este CSS
+ *     npm run build → eliminar CDN del HTML
+ * ─────────────────────────────────────────────────────────
+ */

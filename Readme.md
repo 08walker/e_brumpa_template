@@ -1,203 +1,303 @@
-# Lumora Store — Template E-commerce
+# ÉLARA — Bootstrap 5.3 E-Commerce Template
 
-Template de e-commerce moderno, responsivo y listo para producción. Construido con Tailwind CSS (CDN), Alpine.js y DM Sans + Fraunces como tipografía.
+Plantilla e-commerce responsiva, moderna y lista para producción básica. Construida con Bootstrap 5.3, sin dependencias pesadas y con hooks claros para integración con backend Laravel / API REST.
+
+---
 
 ## Estructura de archivos
 
 ```
 /
-├── index.html          ← Página principal (hero, categorías, grid de productos)
-├── product.html        ← Detalle de producto (galería, variantes, tabs)
-├── cart.html           ← Carrito con resumen y cupones
+├── index.html          # Página principal (hero, categorías, productos, testimonios)
+├── product.html        # Detalle de producto (galería, tabs, relacionados)
+├── cart.html           # Carrito de compras (localStorage, cupones, resumen)
+├── checkout.html       # Checkout multi-paso (envío → pago → confirmación)
+├── about.html          # Nosotros (historia, equipo, valores, estadísticas)
+├── blog.html           # Listado de artículos (sidebar, categorías, paginación)
+├── blog-details.html   # Detalle de artículo (TOC, autor, artículos relacionados)
 ├── css/
-│   └── styles.css      ← Estilos personalizados y componentes
+│   └── styles.css      # Todos los estilos personalizados (2300+ líneas)
 ├── js/
-│   └── main.js         ← Carrito, toasts, filtros, utilidades
-├── assets/
-│   └── images/         ← Imágenes del sitio (ver sección más abajo)
+│   └── main.js         # Toda la lógica JS (carrito, filtros, toast, modales)
 └── README.md
 ```
 
-## Uso rápido (demo local)
+---
 
-No requiere instalación. Abre `index.html` en cualquier navegador:
+## Uso local
 
+### Opción 1 — Abrir directamente en navegador
+Simplemente abre `index.html` en tu navegador. Todo funciona sin servidor gracias a los CDN y localStorage.
+
+### Opción 2 — Servidor local con Node
 ```bash
-# Con VS Code Live Server (recomendado)
-# Instalar extensión "Live Server" y hacer clic derecho → Open with Live Server
-
-# Con Python 3
-python -m http.server 8080
-# Abrir http://localhost:8080
-
-# Con Node.js
 npx serve .
+# Visita http://localhost:3000
 ```
 
-## CDNs utilizados
-
-Incluidos directamente en el `<head>` de cada página HTML:
-
-| Librería | CDN | Propósito |
-|---|---|---|
-| Tailwind CSS | `https://cdn.tailwindcss.com` | Estilos utility-first |
-| Alpine.js | `https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js` | Interactividad declarativa |
-| Google Fonts | `https://fonts.googleapis.com` | Fraunces + DM Sans |
-
-## Producción con Tailwind CLI (recomendado)
-
-Para producción, **no usar el CDN** — compilar con Tailwind CLI:
-
+### Opción 3 — PHP built-in server (ideal para integración Laravel-style)
 ```bash
-# 1. Inicializar proyecto npm
-npm init -y
-
-# 2. Instalar Tailwind CSS
-npm install -D tailwindcss
-
-# 3. Generar configuración
-npx tailwindcss init
-
-# 4. Crear css/input.css
-echo '@tailwind base;
-@tailwind components;
-@tailwind utilities;' > css/input.css
-
-# 5. Compilar (desarrollo con watch)
-npx tailwindcss -i ./css/input.css -o ./css/styles-compiled.css --watch
-
-# 6. Compilar (producción, minificado)
-npx tailwindcss -i ./css/input.css -o ./css/styles-compiled.css --minify
+php -S localhost:8000
+# Visita http://localhost:8000
 ```
-
-Luego en el HTML, reemplazar:
-```html
-<!-- Quitar CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Añadir CSS compilado -->
-<link rel="stylesheet" href="css/styles-compiled.css" />
-```
-
-## Minificar JavaScript
-
-```bash
-# Con terser
-npm install -D terser
-npx terser js/main.js -o js/main.min.js --compress --mangle
-
-# Actualizar en HTML:
-# <script src="js/main.min.js"></script>
-```
-
-## Paleta de colores y tipografía
-
-| Variable | Valor | Uso |
-|---|---|---|
-| `primary` | `#0ea5a4` | Botones, badges, acentos |
-| `neutral-900` | `#111827` | Texto principal |
-| `neutral-50` | `#f8fafc` | Fondos claros |
-| `cream` | `#faf8f5` | Fondo del body |
-| `Fraunces` | Display/Serif | Títulos h1–h3 |
-| `DM Sans` | Sans-serif | Cuerpo de texto |
-
-## Imágenes
-
-El template usa **placeholders automáticos** via `onerror` en cada `<img>`. Para producción:
-
-1. Reemplazar las rutas `assets/images/*.jpg` con tus imágenes reales
-2. Recommended: usar WebP con fallback JPG
-3. Para Laravel: `Storage::url('products/foto.webp')`
-
-Imágenes de ejemplo que debes agregar en `assets/images/`:
-- `hero-product.jpg` — Imagen del banner principal
-- `product-1.jpg` a `product-8.jpg` — Fotos de productos
-- `cat-ropa.jpg`, `cat-electronica.jpg`, `cat-hogar.jpg`, `cat-accesorios.jpg` — Categorías
-
-Fuentes gratuitas: [Unsplash](https://unsplash.com), [Pexels](https://pexels.com), [Pixabay](https://pixabay.com)
-
-## Carrito
-
-El carrito usa `localStorage` con la clave `lumora_cart`. Para integrar con Laravel:
-
-```javascript
-// GET carrito desde API
-const response = await fetch('/api/cart', {
-  headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
-});
-const cart = await response.json();
-```
-
-**Cupones de prueba disponibles:**
-- `SAVE10` → 10% de descuento
-- `LUMORA20` → 20% de descuento
-- `PROMO15` → 15% de descuento
-
-## Componentes disponibles
-
-| Componente | Clase CSS | Archivo |
-|---|---|---|
-| Botón primario | `btn-primary` | `styles.css` |
-| Botón outline | `btn-outline` | `styles.css` |
-| Badge Nuevo | `badge-new` | `styles.css` |
-| Badge Oferta | `badge-sale` | `styles.css` |
-| Chip filtro | `chip-filter` | `styles.css` |
-| Toast | `showToast(msg, type)` | `main.js` |
-| Tarjeta producto | `product-card` | `styles.css` |
-
-## Accesibilidad
-
-- Todos los botones e imágenes tienen `aria-label` o `alt`
-- Menú offcanvas con `role="dialog"` y `aria-modal="true"`
-- Toasts con `aria-live="polite"`
-- Focus states visibles (`:focus-visible`)
-- Breadcrumbs con `aria-label="Breadcrumb"` y `aria-current="page"`
-- Selectores de talla y color con `role="radiogroup"` y `role="radio"`
-
-## Integración con Laravel
-
-```
-app/
-├── Http/Controllers/
-│   ├── ProductController.php   ← Listar/filtrar productos
-│   ├── CartController.php      ← CRUD carrito (sesión o BD)
-│   └── CouponController.php    ← Validar cupones
-├── Models/
-│   ├── Product.php
-│   ├── Cart.php
-│   └── Coupon.php
-routes/
-└── api.php
-    GET    /api/products
-    POST   /api/cart
-    PUT    /api/cart/{id}
-    DELETE /api/cart/{id}
-    POST   /api/coupons/validate
-```
-
-## Pasarela de pago — Clip (México)
-
-```javascript
-// En cart.html → proceedToCheckout()
-// Documentación: https://developer.clip.mx
-async function proceedToCheckout() {
-  const response = await fetch('/api/payment/clip/initiate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-TOKEN': csrfToken,
-    },
-    body: JSON.stringify({ cart: getCart() }),
-  });
-  const { payment_url } = await response.json();
-  window.location.href = payment_url;
-}
-```
-
-## Licencia
-
-MIT — Libre para uso personal y comercial.
 
 ---
 
-Desarrollado como base para proyectos Laravel + Bootstrap/Tailwind. 🚀
+## CDN utilizados
+
+Todos incluidos vía CDN, sin instalación:
+
+| Librería | Versión | Propósito |
+|---|---|---|
+| Bootstrap CSS | 5.3.3 | Framework UI base |
+| Bootstrap JS Bundle | 5.3.3 | Componentes interactivos |
+| Bootstrap Icons | 1.11.3 | Iconografía |
+| Google Fonts | — | Playfair Display + DM Sans |
+
+---
+
+## Funcionalidades JS (`/js/main.js`)
+
+### Carrito (localStorage)
+```javascript
+// Todas las funciones están disponibles globalmente
+window.addToCart({ id, name, price, image, variant, qty })
+window.removeFromCart(itemKey)
+window.updateQuantity(itemKey, newQty)
+window.renderCart()          // Renderiza cart.html
+window.updateCartBadge()     // Actualiza badge en navbar
+window.getCart()             // Retorna array del carrito
+```
+
+**Persistencia:** Los datos se guardan en `localStorage` bajo la clave `elara_cart` y persisten entre páginas y recargas.
+
+**Estructura de un ítem:**
+```javascript
+{
+  _key: "product-id_Variante",  // clave única por producto+variante
+  id: "product-id",
+  name: "Nombre del producto",
+  price: 2599,                  // número, sin formato
+  image: "url-imagen",
+  variant: "Color / Talla",
+  qty: 1
+}
+```
+
+### Cupones
+Los cupones válidos están definidos en `main.js` en el objeto `COUPONS`:
+```javascript
+const COUPONS = {
+  'SAVE10':      { type: 'percent',  value: 10  },  // 10% descuento
+  'BIENVENIDO':  { type: 'fixed',    value: 200 },  // $200 MXN fijos
+  'ENVIOGRATIS': { type: 'shipping', value: 0   },  // Envío gratis
+};
+```
+Para agregar más cupones, simplemente extiende el objeto `COUPONS`.
+
+### Filtros de productos
+Funcionan con `data-attributes` en las cards:
+```html
+<div class="product-item" data-filter="bestseller" data-badge="Bestseller">
+```
+Los filtros disponibles se definen como botones con `data-filter="valor"`.
+
+### Toast notifications
+```javascript
+window.showToast('Título', 'Mensaje descriptivo', 'success'); // success | error | info | warning
+```
+
+---
+
+## Integración con Laravel
+
+### 1. Instalación en proyecto Laravel existente
+
+Copia los archivos a `public/`:
+```
+public/
+├── index.html  → resources/views/index.blade.php  (o mantener como HTML)
+├── css/styles.css → public/css/styles.css
+├── js/main.js  → public/js/main.js
+```
+
+O sirve directamente desde `public/` para un frontend desacoplado.
+
+### 2. Convertir a Blade
+
+Renombra `.html` → `.blade.php` y usa directivas:
+```blade
+{{-- layouts/app.blade.php --}}
+@include('partials.navbar')
+@yield('content')
+@include('partials.footer')
+```
+
+### 3. API REST — Endpoints sugeridos
+
+Busca los comentarios `// [API HOOK LARAVEL]` en `main.js` y `checkout.html`:
+
+```
+GET    /api/products                    → Listado con filtros
+GET    /api/products/{slug}             → Detalle de producto
+POST   /api/coupons/validate            → Validar cupón
+POST   /api/orders                      → Crear orden
+POST   /api/orders/{id}/payment         → Procesar pago
+GET    /api/orders/{id}                 → Estado de orden
+POST   /api/newsletter/subscribe        → Suscripción
+```
+
+**Ejemplo de integración en `addToCart`:**
+```javascript
+// Reemplazar localStorage con llamada API:
+async function addToCart(item) {
+  const response = await fetch('/api/cart/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrf },
+    body: JSON.stringify(item)
+  });
+  const cart = await response.json();
+  renderCartFromApi(cart);
+}
+```
+
+### 4. Autenticación
+
+Agrega en el navbar el estado del usuario desde Blade:
+```blade
+@auth
+  <a href="{{ route('account') }}" class="nav-icon-btn">
+    <i class="bi bi-person-check"></i>
+  </a>
+@else
+  <a href="{{ route('login') }}" class="nav-icon-btn">
+    <i class="bi bi-person"></i>
+  </a>
+@endauth
+```
+
+---
+
+## Integración de pagos
+
+### Stripe
+```html
+<!-- Agregar en checkout.html dentro del tab de tarjeta -->
+<script src="https://js.stripe.com/v3/"></script>
+<div id="stripe-card-element"></div>
+
+<script>
+const stripe = Stripe('pk_test_TU_CLAVE_PUBLICA');
+const elements = stripe.elements();
+const cardElement = elements.create('card');
+cardElement.mount('#stripe-card-element');
+</script>
+```
+
+**Laravel backend:**
+```bash
+composer require stripe/stripe-php
+```
+```php
+// En tu PaymentController:
+\Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+$paymentIntent = \Stripe\PaymentIntent::create([
+    'amount'   => $total * 100,  // centavos
+    'currency' => 'mxn',
+]);
+```
+
+### Clip (México)
+Reemplaza el formulario de tarjeta con el SDK de Clip:
+```html
+<!-- [API HOOK LARAVEL] Clip TokenForm -->
+<script src="https://sdk.clip.mx/v2/clip.js"></script>
+```
+Ver documentación oficial: https://developer.clip.mx
+
+### Conekta / OXXO / SPEI
+```bash
+composer require conekta/conekta-php
+```
+Los tabs de OXXO y SPEI en `checkout.html` ya tienen los hooks marcados para conectar la generación de referencias.
+
+---
+
+## Personalización
+
+### Colores
+Edita las variables CSS en `styles.css`:
+```css
+:root {
+  --color-primary:       #FF0000;
+  --color-primary-dark:  #CC0000;
+  --color-primary-light: #FFE5E5;
+}
+```
+
+### Tipografía
+Cambia las fuentes en `styles.css` y en el `<link>` de Google Fonts de cada página:
+```css
+--font-display: 'Playfair Display', serif;
+--font-body:    'DM Sans', sans-serif;
+```
+
+### Moneda y locale
+En `main.js`, busca la función `formatPrice`:
+```javascript
+function formatPrice(amount) {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'MXN'
+  }).format(amount);
+}
+```
+Cambia `'es-MX'` y `'MXN'` según tu mercado.
+
+### Envío gratuito
+En `main.js`, busca `FREE_SHIPPING_THRESHOLD`:
+```javascript
+const FREE_SHIPPING_THRESHOLD = 1500;  // MXN
+const SHIPPING_COST = 150;             // MXN
+```
+
+---
+
+## SEO
+
+Todas las páginas incluyen:
+- `<meta name="description">`
+- `<meta property="og:title">`
+- `<meta property="og:description">`
+- `loading="lazy"` en todas las imágenes
+
+Para SEO avanzado en Laravel, considera:
+```bash
+composer require spatie/laravel-sitemap
+```
+
+---
+
+## Accesibilidad
+
+- Todos los botones/iconos tienen `aria-label`
+- Inputs con `autocomplete` apropiado
+- Roles ARIA en listas de navegación y toast (`aria-live="assertive"`)
+- Navegación completa por teclado (focus states en `styles.css`)
+
+---
+
+## Notas de desarrollo
+
+- **Sin jQuery.** Todo JS vanilla + Bootstrap JS API.
+- **Sin inline styles** salvo valores dinámicos mínimos (e.g. `top: 90px` en sticky).
+- **Imágenes:** Todas usan `placehold.co`. Reemplazar con rutas reales o llamadas a Storage de Laravel.
+- **Formularios:** Validación HTML5 nativa + lógica adicional en `main.js`. Para producción, agregar validación servidor (Laravel `FormRequest`).
+- **CSRF:** Agregar token CSRF al pasar a Laravel con `@csrf` en forms o header `X-CSRF-TOKEN` en fetch.
+
+---
+
+## Licencia
+
+Template de uso libre para proyectos comerciales y personales.  
+Créditos: Bootstrap (MIT), Bootstrap Icons (MIT), Google Fonts (OFL).

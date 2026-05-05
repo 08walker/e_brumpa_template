@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explora toda la colección EBRUMPA — moda contemporánea para mujer y hombre. Filtra por categoría, talla, color y precio.">
+  <meta property="og:title" content="Tienda — EBRUMPA">
+  <meta property="og:description" content="Descubre la colección completa EBRUMPA. Blazers, vestidos, accesorios y más.">
+  <title>Tienda — EBRUMPA</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ========================================================
+       SHOP PAGE — SCOPED STYLES
+    ======================================================== */
+
+    /* --- Shop Banner --- */
+    .shop-banner {
+      background: var(--color-neutral-900);
+      position: relative;
+      overflow: hidden;
+      padding: 3.5rem 0 3rem;
+    }
+    .shop-banner::before {
+      content: 'COLLECTION';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 14vw, 10rem);
+      font-weight: 700;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -4px;
+    }
+    .shop-banner-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .shop-banner-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .shop-banner-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+    /* Quick category pills in banner */
+    .shop-cat-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
+    .shop-cat-pill {
+      padding: 0.35rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 99px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      background: transparent;
+      text-decoration: none;
+    }
+    .shop-cat-pill:hover,
+    .shop-cat-pill.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+
+    /* --- Toolbar (sort, view, count) --- */
+    .shop-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--color-neutral-200);
+      flex-wrap: wrap;
+    }
+    .shop-result-count { font-size: 0.85rem; color: var(--color-neutral-400); }
+    .shop-result-count strong { color: var(--color-neutral-800); }
+    .sort-select {
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 2rem 0.4rem 0.75rem;
+      font-size: 0.82rem;
+      color: var(--color-neutral-700);
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 0.6rem center;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: border-color var(--transition-base);
+    }
+    .sort-select:focus { outline: none; border-color: var(--color-primary); }
+    .view-toggle { display: flex; gap: 4px; }
+    .view-btn {
+      width: 32px; height: 32px;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      color: var(--color-neutral-400);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      background: #fff;
+    }
+    .view-btn.active,
+    .view-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+    .filter-toggle-btn {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--color-neutral-700);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.9rem;
+      background: #fff;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .filter-toggle-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .filter-badge {
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-radius: 99px;
+      padding: 1px 6px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* --- Active Filters bar --- */
+    .active-filters-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+    .active-filters-bar.hidden { display: none; }
+    .active-filter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      background: var(--color-primary-light);
+      border: 1px solid rgba(255,0,0,0.2);
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-primary-dark);
+    }
+    .active-filter-tag button {
+      background: none; border: none; padding: 0;
+      color: var(--color-primary);
+      cursor: pointer; line-height: 1; font-size: 0.7rem;
+    }
+    .clear-all-btn {
+      font-size: 0.75rem; color: var(--color-neutral-400);
+      background: none; border: none; cursor: pointer;
+      text-decoration: underline; margin-left: 0.25rem;
+    }
+    .clear-all-btn:hover { color: var(--color-primary); }
+
+    /* --- Sidebar Filters --- */
+    .shop-sidebar {
+      position: sticky;
+      top: calc(var(--navbar-height) + 1rem);
+    }
+    .filter-panel {
+      background: #fff;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .filter-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-base);
+    }
+    .filter-panel-header.open {
+      border-bottom-color: var(--color-neutral-200);
+    }
+    .filter-panel-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-neutral-800);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .filter-panel-chevron {
+      font-size: 0.7rem;
+      color: var(--color-neutral-400);
+      transition: transform var(--transition-base);
+    }
+    .filter-panel-header.open .filter-panel-chevron { transform: rotate(180deg); }
+    .filter-panel-body {
+      padding: 1.1rem 1.25rem;
+      display: none;
+    }
+    .filter-panel-body.open { display: block; }
+
+    /* Category list */
+    .filter-cat-list { list-style: none; padding: 0; margin: 0; }
+    .filter-cat-list li { margin-bottom: 0.1rem; }
+    .filter-cat-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.45rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--color-neutral-600);
+      text-decoration: none;
+      transition: all var(--transition-base);
+    }
+    .filter-cat-list a:hover,
+    .filter-cat-list a.active {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .filter-cat-list .cat-count {
+      font-size: 0.72rem;
+      color: var(--color-neutral-400);
+      background: var(--color-neutral-100);
+      padding: 1px 7px;
+      border-radius: 99px;
+    }
+    .filter-cat-list a.active .cat-count {
+      background: rgba(255,0,0,0.12);
+      color: var(--color-primary);
+    }
+
+    /* Checkbox filters */
+    .filter-check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .filter-check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+    .filter-check-item input[type="checkbox"] {
+      width: 16px; height: 16px;
+      border-radius: 3px;
+      border: 1.5px solid var(--color-neutral-300);
+      accent-color: var(--color-primary);
+      cursor: pointer;
+    }
+    .filter-check-item label {
+      font-size: 0.84rem;
+      color: var(--color-neutral-600);
+      cursor: pointer;
+      flex: 1;
+    }
+    .filter-check-item:hover label { color: var(--color-primary); }
+    .filter-check-count {
+      font-size: 0.72rem;
+      color: var(--color-neutral-400);
+    }
+
+    /* Color swatches filter */
+    .color-filter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .color-swatch-filter {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    .color-swatch-filter.active,
+    .color-swatch-filter:hover {
+      border-color: var(--color-primary);
+      transform: scale(1.1);
+    }
+    .color-swatch-filter.active::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+    }
+
+    /* Size filter */
+    .size-filter-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .size-filter-btn {
+      min-width: 36px; height: 32px;
+      padding: 0 0.6rem;
+      border: 1.5px solid var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-neutral-600);
+      background: #fff;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .size-filter-btn:hover,
+    .size-filter-btn.active {
+      border-color: var(--color-primary);
+      background: var(--color-primary);
+      color: #fff;
+    }
+    .size-filter-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+
+    /* Price range */
+    .price-range-inputs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .price-input {
+      flex: 1;
+      padding: 0.45rem 0.6rem;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--color-neutral-700);
+      text-align: center;
+    }
+    .price-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .price-range-sep { color: var(--color-neutral-400); font-size: 0.8rem; }
+    .price-apply-btn {
+      width: 100%;
+      margin-top: 0.75rem;
+      padding: 0.45rem;
+      background: var(--color-neutral-900);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition-base);
+    }
+    .price-apply-btn:hover { background: var(--color-primary); }
+    .price-range-slider {
+      width: 100%;
+      accent-color: var(--color-primary);
+      margin: 0.75rem 0 0.25rem;
+    }
+    .price-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      color: var(--color-neutral-400);
+    }
+
+    /* Rating filter */
+    .rating-filter-list { list-style: none; padding: 0; margin: 0; }
+    .rating-filter-list li {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition-base);
+    }
+    .rating-filter-list li:hover { background: var(--color-neutral-100); }
+    .rating-stars { color: #F59E0B; font-size: 0.78rem; }
+    .rating-label { font-size: 0.8rem; color: var(--color-neutral-600); }
+
+    /* --- Product Grid --- */
+    .product-grid-area { min-height: 600px; }
+
+    /* List view mode */
+    .products-list-view .product-card {
+      flex-direction: row;
+    }
+    .products-list-view .product-card-img-wrap {
+      width: 180px;
+      min-width: 180px;
+      height: 220px;
+    }
+    .products-list-view .product-card-img-wrap img {
+      height: 100%;
+      object-fit: cover;
+    }
+    .products-list-view .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Product card quick-view overlay */
+    .product-card .quick-view-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.55rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all var(--transition-base);
+      letter-spacing: 0.06em;
+      cursor: pointer;
+    }
+    .product-card-img-wrap:hover .quick-view-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Compare checkbox */
+    .compare-check {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.6rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255,255,255,0.95);
+      border-radius: 99px;
+      padding: 2px 8px 2px 4px;
+      font-size: 0.67rem;
+      font-weight: 600;
+      color: var(--color-neutral-600);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    .product-card:hover .compare-check { opacity: 1; }
+    .compare-check input { accent-color: var(--color-primary); cursor: pointer; }
+
+    /* --- No results state --- */
+    .no-results {
+      text-align: center;
+      padding: 5rem 2rem;
+      display: none;
+    }
+    .no-results.visible { display: block; }
+    .no-results-icon { font-size: 3rem; color: var(--color-neutral-300); margin-bottom: 1rem; }
+
+    /* --- Pagination --- */
+    .shop-pagination { padding: 2rem 0 1rem; }
+
+    /* --- Mobile filter drawer --- */
+    .mobile-filter-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 1060;
+      display: flex;
+      pointer-events: none;
+    }
+    .mobile-filter-drawer.open { pointer-events: all; }
+    .mobile-filter-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .mobile-filter-drawer.open .mobile-filter-backdrop { opacity: 1; }
+    .mobile-filter-panel {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: min(340px, 90vw);
+      background: #fff;
+      overflow-y: auto;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-filter-drawer.open .mobile-filter-panel { transform: translateX(0); }
+    .mobile-filter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--color-neutral-200);
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 1;
+    }
+    .mobile-filter-body { flex: 1; padding: 1rem 1.5rem; overflow-y: auto; }
+    .mobile-filter-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--color-neutral-200);
+      display: flex;
+      gap: 0.75rem;
+      position: sticky;
+      bottom: 0;
+      background: #fff;
+    }
+
+    /* --- Loading skeleton --- */
+    .skeleton-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--color-neutral-200);
+    }
+    .skeleton-img {
+      height: 280px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+    .skeleton-line {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      margin: 0.5rem 1rem;
+    }
+    .skeleton-line.short { width: 55%; }
+    .skeleton-line.price { width: 35%; height: 16px; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* --- Floating compare bar --- */
+    .compare-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      background: var(--color-neutral-900);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1050;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      flex-wrap: wrap;
+    }
+    .compare-bar.visible { transform: translateY(0); }
+    .compare-bar-items { display: flex; gap: 0.75rem; flex: 1; }
+    .compare-slot {
+      width: 52px; height: 52px;
+      border: 2px dashed rgba(255,255,255,0.25);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .compare-slot img { width: 100%; height: 100%; object-fit: cover; }
+    .compare-slot .remove-compare {
+      position: absolute;
+      top: 2px; right: 2px;
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 14px; height: 14px;
+      font-size: 0.5rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .shop-sidebar { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      .shop-banner { padding: 2.5rem 0 2rem; }
+      .shop-banner::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+    TOPBAR
+  ============================================================ -->
+  <div class="topbar">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <span><i class="bi bi-truck me-1"></i> Envío gratis en pedidos +$1,500 MXN</span>
+        <div class="d-none d-md-flex gap-3">
+          <a href="#" class="text-white text-decoration-none small">Rastrear pedido</a>
+          <a href="#" class="text-white text-decoration-none small">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    NAVBAR
+  ============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="brand-text">EBRUMPA</span></a>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Tienda</a>
+            <ul class="dropdown-menu border-0 shadow-sm rounded-3 p-2">
+              <li><a class="dropdown-item rounded-2 py-2" href="shop.html">Todo</a></li>
+              <li><a class="dropdown-item rounded-2 py-2" href="shop.html?cat=mujer">Mujer</a></li>
+              <li><a class="dropdown-item rounded-2 py-2" href="shop.html?cat=hombre">Hombre</a></li>
+              <li><a class="dropdown-item rounded-2 py-2" href="shop.html?cat=accesorios">Accesorios</a></li>
+              <li><a class="dropdown-item rounded-2 py-2" href="shop.html?cat=calzado">Calzado</a></li>
+              <li><hr class="dropdown-divider my-1"></li>
+              <li><a class="dropdown-item rounded-2 py-2 text-primary-custom fw-semibold" href="shop.html?filter=ofertas">Ofertas</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        </ul>
+
+        <!-- Desktop search -->
+        <div class="search-wrapper me-2" style="width: 220px;">
+          <i class="bi bi-search search-icon"></i>
+          <input type="search" class="form-control search-input-custom" id="navSearchInput" placeholder="Buscar productos..." aria-label="Buscar">
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="#" class="nav-icon-btn d-none d-lg-flex" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
+        <a href="#" class="nav-icon-btn d-none d-lg-flex" aria-label="Favoritos"><i class="bi bi-heart"></i></a>
+        <a href="cart.html" class="nav-icon-btn cart-icon-btn position-relative" aria-label="Carrito">
+          <i class="bi bi-bag"></i><span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="btn border-0 p-1 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Menú">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Offcanvas -->
+  <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <span class="brand-text fs-4">EBRUMPA</span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="search-wrapper mb-3">
+        <i class="bi bi-search search-icon"></i>
+        <input type="search" class="form-control search-input-custom" placeholder="Buscar productos...">
+      </div>
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="shop.html">Tienda</a></li>
+        <li class="nav-item"><a class="nav-link ps-4 small" href="shop.html?cat=mujer">— Mujer</a></li>
+        <li class="nav-item"><a class="nav-link ps-4 small" href="shop.html?cat=hombre">— Hombre</a></li>
+        <li class="nav-item"><a class="nav-link ps-4 small" href="shop.html?cat=accesorios">— Accesorios</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-ofertas" href="shop.html?filter=ofertas">Ofertas</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    SHOP BANNER
+  ============================================================ -->
+  <section class="shop-banner">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb breadcrumb-custom mb-0" style="--bs-breadcrumb-divider-color:rgba(255,255,255,0.3)">
+          <li class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,0.5)">Inicio</a></li>
+          <li class="breadcrumb-item active" style="color:rgba(255,255,255,0.7)" aria-current="page">Tienda</li>
+        </ol>
+      </nav>
+      <div class="row align-items-end g-4">
+        <div class="col-lg-7">
+          <span class="shop-banner-eyebrow">Colección 2026–2027</span>
+          <h1 class="shop-banner-title">Toda la colección</h1>
+          <p class="shop-banner-sub">Descubre piezas diseñadas para perdurar — moda que dialoga con quien la porta.</p>
+          <div class="shop-cat-pills">
+            <a href="#" class="shop-cat-pill active" data-cat="all">Todo</a>
+            <a href="#" class="shop-cat-pill" data-cat="mujer">Mujer</a>
+            <a href="#" class="shop-cat-pill" data-cat="hombre">Hombre</a>
+            <a href="#" class="shop-cat-pill" data-cat="accesorios">Accesorios</a>
+            <a href="#" class="shop-cat-pill" data-cat="calzado">Calzado</a>
+            <a href="#" class="shop-cat-pill" data-cat="ofertas" style="border-color:var(--color-primary);color:var(--color-primary)">
+              <i class="bi bi-tag-fill me-1" style="font-size:0.65rem;"></i>Ofertas
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end gap-3">
+          <!-- Mini stats -->
+          <div class="text-end">
+            <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:#fff;line-height:1;">340+</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:2px;">productos disponibles</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+          <div class="text-end">
+            <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:#fff;line-height:1;">12</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:2px;">colecciones activas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SHOP BODY
+  ============================================================ -->
+  <section class="py-4">
+    <div class="container">
+
+      <!-- TOOLBAR -->
+      <div class="shop-toolbar">
+        <!-- Left side -->
+        <div class="d-flex align-items-center gap-2 flex-1">
+          <!-- Mobile filter toggle -->
+          <button class="filter-toggle-btn d-lg-none" id="mobileFilterBtn" aria-label="Abrir filtros">
+            <i class="bi bi-sliders"></i> Filtros
+            <span class="filter-badge" id="mobileFilterBadge" style="display:none;">0</span>
+          </button>
+          <span class="shop-result-count">
+            Mostrando <strong id="resultStart">1</strong>–<strong id="resultEnd">24</strong>
+            de <strong id="resultTotal">72</strong> productos
+          </span>
+        </div>
+        <!-- Right side -->
+        <div class="d-flex align-items-center gap-2 ms-auto">
+          <label class="text-muted small d-none d-md-inline" for="sortSelect">Ordenar:</label>
+          <select class="sort-select" id="sortSelect" aria-label="Ordenar productos">
+            <option value="featured">Destacados</option>
+            <option value="newest">Más nuevos</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="rating">Mejor valorados</option>
+            <option value="bestseller">Más vendidos</option>
+          </select>
+          <div class="view-toggle d-none d-md-flex" role="group" aria-label="Modo de vista">
+            <button class="view-btn active" id="viewGrid" aria-label="Vista cuadrícula" title="Cuadrícula">
+              <i class="bi bi-grid-3x3-gap"></i>
+            </button>
+            <button class="view-btn" id="viewList" aria-label="Vista lista" title="Lista">
+              <i class="bi bi-list-ul"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVE FILTERS BAR -->
+      <div class="active-filters-bar hidden" id="activeFiltersBar">
+        <span class="text-muted small fw-medium me-1">Filtros activos:</span>
+        <div id="activeFilterTags"></div>
+        <button class="clear-all-btn ms-auto" id="clearAllFilters">Limpiar todo</button>
+      </div>
+
+      <!-- MAIN ROW: sidebar + grid -->
+      <div class="row g-4 mt-1">
+
+        <!-- ============================================
+          SIDEBAR FILTERS (desktop only)
+        ============================================ -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <div class="shop-sidebar" style="top:calc(var(--navbar-height) + 1.5rem);">
+
+            <!-- Categorías -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="categories">
+                <span class="filter-panel-title">Categorías</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-categories">
+                <ul class="filter-cat-list">
+                  <li>
+                    <a href="#" class="active" data-cat="all">
+                      Todo <span class="cat-count">340</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="mujer">
+                      Mujer <span class="cat-count">142</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="hombre" style="padding-left:1.5rem;font-size:0.82rem;">
+                      — Blazers & Sacos <span class="cat-count">34</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="hombre" style="padding-left:1.5rem;font-size:0.82rem;">
+                      — Vestidos <span class="cat-count">28</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="hombre" style="padding-left:1.5rem;font-size:0.82rem;">
+                      — Pantalones <span class="cat-count">22</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="hombre">
+                      Hombre <span class="cat-count">98</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="accesorios">
+                      Accesorios <span class="cat-count">65</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="calzado">
+                      Calzado <span class="cat-count">35</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-cat="ofertas" style="color:var(--color-primary);font-weight:600;">
+                      <i class="bi bi-tag-fill me-1"></i>Ofertas <span class="cat-count" style="background:rgba(255,0,0,0.1);color:var(--color-primary);">47</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Color -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="color">
+                <span class="filter-panel-title">Color</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-color">
+                <div class="color-filter-grid">
+                  <div class="color-swatch-filter active" style="background:#1A1A1A;" title="Negro" data-color="negro"></div>
+                  <div class="color-swatch-filter" style="background:#fff;border:1.5px solid #ddd;" title="Blanco" data-color="blanco"></div>
+                  <div class="color-swatch-filter" style="background:#C8A97E;" title="Camel" data-color="camel"></div>
+                  <div class="color-swatch-filter" style="background:#6B6B6B;" title="Gris" data-color="gris"></div>
+                  <div class="color-swatch-filter" style="background:#7C3D2E;" title="Burdeos" data-color="burdeos"></div>
+                  <div class="color-swatch-filter" style="background:#2C4B6E;" title="Azul marino" data-color="azul-marino"></div>
+                  <div class="color-swatch-filter" style="background:#4A7C59;" title="Verde salvia" data-color="verde"></div>
+                  <div class="color-swatch-filter" style="background:#D4A5A5;" title="Rosa palo" data-color="rosa"></div>
+                  <div class="color-swatch-filter" style="background:#F5E6C8;" title="Crema" data-color="crema"></div>
+                  <div class="color-swatch-filter" style="background:#8B7355;" title="Topo" data-color="topo"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Talla -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="talla">
+                <span class="filter-panel-title">Talla</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-talla">
+                <div class="size-filter-grid">
+                  <button class="size-filter-btn" data-size="XS">XS</button>
+                  <button class="size-filter-btn active" data-size="S">S</button>
+                  <button class="size-filter-btn" data-size="M">M</button>
+                  <button class="size-filter-btn" data-size="L">L</button>
+                  <button class="size-filter-btn" data-size="XL">XL</button>
+                  <button class="size-filter-btn" disabled data-size="XXL">XXL</button>
+                  <button class="size-filter-btn" data-size="U">Talla única</button>
+                  <button class="size-filter-btn" data-size="34">34</button>
+                  <button class="size-filter-btn" data-size="36">36</button>
+                  <button class="size-filter-btn" data-size="38">38</button>
+                  <button class="size-filter-btn active" data-size="40">40</button>
+                  <button class="size-filter-btn" data-size="42">42</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Precio -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="precio">
+                <span class="filter-panel-title">Precio (MXN)</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-precio">
+                <input type="range" class="price-range-slider" id="priceSlider" min="0" max="8000" value="4000" step="100" aria-label="Precio máximo">
+                <div class="price-labels">
+                  <span>$0</span>
+                  <span id="sliderValue">$4,000</span>
+                  <span>$8,000</span>
+                </div>
+                <div class="price-range-inputs mt-3">
+                  <input type="number" class="price-input" id="priceMin" placeholder="Mín" value="0" min="0" max="8000" aria-label="Precio mínimo">
+                  <span class="price-range-sep">—</span>
+                  <input type="number" class="price-input" id="priceMax" placeholder="Máx" value="4000" min="0" max="8000" aria-label="Precio máximo">
+                </div>
+                <button class="price-apply-btn" id="applyPriceBtn">Aplicar rango</button>
+              </div>
+            </div>
+
+            <!-- Valoración -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="rating">
+                <span class="filter-panel-title">Valoración</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-rating">
+                <ul class="rating-filter-list">
+                  <li data-rating="4">
+                    <span class="rating-stars">★★★★☆</span>
+                    <span class="rating-label">4 estrellas o más</span>
+                    <span class="filter-check-count ms-auto">(184)</span>
+                  </li>
+                  <li data-rating="3">
+                    <span class="rating-stars">★★★☆☆</span>
+                    <span class="rating-label">3 estrellas o más</span>
+                    <span class="filter-check-count ms-auto">(237)</span>
+                  </li>
+                  <li data-rating="2">
+                    <span class="rating-stars">★★☆☆☆</span>
+                    <span class="rating-label">2 estrellas o más</span>
+                    <span class="filter-check-count ms-auto">(251)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Disponibilidad -->
+            <div class="filter-panel">
+              <div class="filter-panel-header open" data-toggle-panel="disponibilidad">
+                <span class="filter-panel-title">Disponibilidad</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body open" id="panel-disponibilidad">
+                <ul class="filter-check-list">
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="inStock" checked>
+                    <label for="inStock">En stock</label>
+                    <span class="filter-check-count">(298)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="onSale">
+                    <label for="onSale">En oferta</label>
+                    <span class="filter-check-count">(47)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="newArrival">
+                    <label for="newArrival">Nuevos ingresos</label>
+                    <span class="filter-check-count">(28)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Marca / Material -->
+            <div class="filter-panel">
+              <div class="filter-panel-header" data-toggle-panel="material">
+                <span class="filter-panel-title">Material</span>
+                <i class="bi bi-chevron-down filter-panel-chevron"></i>
+              </div>
+              <div class="filter-panel-body" id="panel-material">
+                <ul class="filter-check-list">
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="matLana">
+                    <label for="matLana">Lana merino</label>
+                    <span class="filter-check-count">(42)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="matAlgodon">
+                    <label for="matAlgodon">Algodón orgánico</label>
+                    <span class="filter-check-count">(78)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="matLino">
+                    <label for="matLino">Lino</label>
+                    <span class="filter-check-count">(31)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="matSeda">
+                    <label for="matSeda">Seda / satín</label>
+                    <span class="filter-check-count">(19)</span>
+                  </li>
+                  <li class="filter-check-item">
+                    <input type="checkbox" id="matSintetico">
+                    <label for="matSintetico">Sintético premium</label>
+                    <span class="filter-check-count">(56)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- ============================================
+          PRODUCT GRID
+        ============================================ -->
+        <div class="col-lg-9">
+          <div class="product-grid-area">
+
+            <!-- Loading skeleton (shown briefly on sort/filter) -->
+            <div id="loadingSkeleton" class="row g-3" style="display:none!important;">
+              <div class="col-6 col-md-4"><div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mt-3"></div><div class="skeleton-line short"></div><div class="skeleton-line price mb-3"></div></div></div>
+              <div class="col-6 col-md-4"><div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mt-3"></div><div class="skeleton-line short"></div><div class="skeleton-line price mb-3"></div></div></div>
+              <div class="col-6 col-md-4 d-none d-md-block"><div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line mt-3"></div><div class="skeleton-line short"></div><div class="skeleton-line price mb-3"></div></div></div>
+            </div>
+
+            <!-- No results -->
+            <div class="no-results" id="noResults">
+              <div class="no-results-icon"><i class="bi bi-bag-x"></i></div>
+              <h5 class="fw-semibold mb-2">No encontramos productos</h5>
+              <p class="text-muted mb-4">Prueba con otros filtros o busca algo diferente.</p>
+              <button class="btn-secondary-custom" onclick="document.getElementById('clearAllFilters').click()">
+                Limpiar filtros
+              </button>
+            </div>
+
+            <!-- Products grid -->
+            <div class="row g-3" id="productsGrid">
+
+              <!-- ---- PRODUCT CARD 1 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="2599" data-rating="5" data-badge="bestseller" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/1A1A1A/FFFFFF?text=Blazer+Minimal" class="card-img-top" alt="Blazer Estructura Minimal" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay" data-product="1">
+                      <i class="bi bi-eye me-1"></i>Vista rápida
+                    </div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Agregar a favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                      <button class="btn btn-icon" aria-label="Comparar" data-compare data-name="Blazer Estructura Minimal" data-img="https://placehold.co/80x80/1A1A1A/FFFFFF?text=B"><i class="bi bi-arrow-left-right"></i></button>
+                    </div>
+                    <label class="compare-check">
+                      <input type="checkbox" data-compare-check="1"> Comparar
+                    </label>
+                    <span class="badge-promo">Bestseller</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Blazers</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Blazer Estructura Minimal</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      <span class="text-muted ms-1 small">(128)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$2,599</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="1" data-product-name="Blazer Estructura Minimal"
+                      data-product-price="2599" data-product-image="https://placehold.co/400x500/1A1A1A/FFFFFF?text=Blazer+Minimal"
+                      data-product-variant="Negro / S">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 2 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="1799" data-rating="4" data-badge="nuevo" data-new="true" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/F4F4F4/1A1A1A?text=Vestido+Midi" class="card-img-top" alt="Vestido Midi Satinado" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="2"> Comparar</label>
+                    <span class="badge-new">Nuevo</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Vestidos</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Vestido Midi Satinado</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      <span class="text-muted ms-1 small">(43)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$1,799</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="2" data-product-name="Vestido Midi Satinado"
+                      data-product-price="1799" data-product-image="https://placehold.co/400x500/F4F4F4/1A1A1A?text=Vestido+Midi"
+                      data-product-variant="Crema / M">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 3 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="hombre" data-price="3299" data-rating="5" data-badge="" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/2C4B6E/FFFFFF?text=Abrigo+Hombre" class="card-img-top" alt="Abrigo Overcoat Azul" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="3"> Comparar</label>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Hombre · Abrigos</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Abrigo Overcoat Azul Marino</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      <span class="text-muted ms-1 small">(71)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$3,299</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="3" data-product-name="Abrigo Overcoat Azul Marino"
+                      data-product-price="3299" data-product-image="https://placehold.co/400x500/2C4B6E/FFFFFF?text=Abrigo+Hombre"
+                      data-product-variant="Azul marino / L">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 4 — SALE ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="1350" data-rating="4" data-badge="oferta" data-new="false" data-sale="true">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/F0F0F0/1A1A1A?text=Pantalón+Wide" class="card-img-top" alt="Pantalón Wide Leg" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="4"> Comparar</label>
+                    <span class="badge-promo">-20%</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Pantalones</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Pantalón Wide Leg Sastre</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      <span class="text-muted ms-1 small">(89)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$1,350</span>
+                      <span class="product-card-price-old">$1,700</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="4" data-product-name="Pantalón Wide Leg Sastre"
+                      data-product-price="1350" data-product-image="https://placehold.co/400x500/F0F0F0/1A1A1A?text=Pantalón+Wide"
+                      data-product-variant="Gris / 38">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 5 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="accesorios" data-price="890" data-rating="5" data-badge="nuevo" data-new="true" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/C8A97E/FFFFFF?text=Bolso+Camel" class="card-img-top" alt="Bolso Tote Camel" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="5"> Comparar</label>
+                    <span class="badge-new">Nuevo</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Accesorios · Bolsos</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Bolso Tote Camel Premium</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      <span class="text-muted ms-1 small">(36)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$890</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="5" data-product-name="Bolso Tote Camel Premium"
+                      data-product-price="890" data-product-image="https://placehold.co/400x500/C8A97E/FFFFFF?text=Bolso+Camel"
+                      data-product-variant="Camel / Talla única">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 6 — SALE ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="3399" data-rating="4" data-badge="oferta" data-new="false" data-sale="true">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/EBEBEB/1A1A1A?text=Abrigo+Camel" class="card-img-top" alt="Abrigo Camel Premium" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="6"> Comparar</label>
+                    <span class="badge-promo">-15%</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Abrigos</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Abrigo Camel Premium</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      <span class="text-muted ms-1 small">(54)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$3,399</span>
+                      <span class="product-card-price-old">$3,999</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="6" data-product-name="Abrigo Camel Premium"
+                      data-product-price="3399" data-product-image="https://placehold.co/400x500/EBEBEB/1A1A1A?text=Abrigo+Camel"
+                      data-product-variant="Camel / S">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 7 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="hombre" data-price="1499" data-rating="4" data-badge="" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/4A4A4A/FFFFFF?text=Suéter+Merino" class="card-img-top" alt="Suéter Merino Cuello V" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="7"> Comparar</label>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Hombre · Suéteres</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Suéter Merino Cuello V</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      <span class="text-muted ms-1 small">(47)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$1,499</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="7" data-product-name="Suéter Merino Cuello V"
+                      data-product-price="1499" data-product-image="https://placehold.co/400x500/4A4A4A/FFFFFF?text=Suéter+Merino"
+                      data-product-variant="Antracita / M">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 8 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="calzado" data-price="2250" data-rating="5" data-badge="bestseller" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/8B7355/FFFFFF?text=Botas+Caña" class="card-img-top" alt="Botas Caña Alta Cuero" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="8"> Comparar</label>
+                    <span class="badge-promo">Bestseller</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Calzado · Botas</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Botas Caña Alta Cuero</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      <span class="text-muted ms-1 small">(92)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$2,250</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="8" data-product-name="Botas Caña Alta Cuero"
+                      data-product-price="2250" data-product-image="https://placehold.co/400x500/8B7355/FFFFFF?text=Botas+Caña"
+                      data-product-variant="Topo / 38">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 9 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="1199" data-rating="3" data-badge="" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/7C3D2E/FFFFFF?text=Blusa+Seda" class="card-img-top" alt="Blusa Seda Burdeos" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="9"> Comparar</label>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Blusas</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Blusa Satinada Burdeos</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                      <span class="text-muted ms-1 small">(21)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$1,199</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="9" data-product-name="Blusa Satinada Burdeos"
+                      data-product-price="1199" data-product-image="https://placehold.co/400x500/7C3D2E/FFFFFF?text=Blusa+Seda"
+                      data-product-variant="Burdeos / S">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 10 — SALE ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="hombre" data-price="1850" data-rating="4" data-badge="oferta" data-new="false" data-sale="true">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/3D3D3D/FFFFFF?text=Chaqueta+Paño" class="card-img-top" alt="Chaqueta de Paño" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="10"> Comparar</label>
+                    <span class="badge-promo">-25%</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Hombre · Chaquetas</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Chaqueta de Paño Slim</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                      <span class="text-muted ms-1 small">(38)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$1,850</span>
+                      <span class="product-card-price-old">$2,480</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="10" data-product-name="Chaqueta de Paño Slim"
+                      data-product-price="1850" data-product-image="https://placehold.co/400x500/3D3D3D/FFFFFF?text=Chaqueta+Paño"
+                      data-product-variant="Antracita / M">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 11 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="accesorios" data-price="450" data-rating="5" data-badge="nuevo" data-new="true" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/D4A5A5/FFFFFF?text=Pañuelo+Seda" class="card-img-top" alt="Pañuelo de Seda" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="11"> Comparar</label>
+                    <span class="badge-new">Nuevo</span>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Accesorios · Pañuelos</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Pañuelo de Seda Rosa Palo</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                      <span class="text-muted ms-1 small">(14)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$450</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="11" data-product-name="Pañuelo de Seda Rosa Palo"
+                      data-product-price="450" data-product-image="https://placehold.co/400x500/D4A5A5/FFFFFF?text=Pañuelo+Seda"
+                      data-product-variant="Rosa / Talla única">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- PRODUCT CARD 12 ---- -->
+              <div class="col-6 col-md-4 product-item"
+                data-cat="mujer" data-price="2150" data-rating="4" data-badge="" data-new="false" data-sale="false">
+                <div class="product-card card border-0 h-100">
+                  <div class="product-card-img-wrap">
+                    <a href="product.html">
+                      <img src="https://placehold.co/400x500/4A7C59/FFFFFF?text=Falda+Plisada" class="card-img-top" alt="Falda Plisada Verde" loading="lazy">
+                    </a>
+                    <div class="quick-view-overlay"><i class="bi bi-eye me-1"></i>Vista rápida</div>
+                    <div class="product-card-actions">
+                      <button class="btn btn-icon" aria-label="Favoritos" data-wishlist><i class="bi bi-heart"></i></button>
+                    </div>
+                    <label class="compare-check"><input type="checkbox" data-compare-check="12"> Comparar</label>
+                  </div>
+                  <div class="card-body px-2 pt-3 pb-2">
+                    <p class="product-card-category mb-1">Mujer · Faldas</p>
+                    <h6 class="product-card-name mb-1"><a href="product.html" class="text-dark text-decoration-none">Falda Plisada Verde Salvia</a></h6>
+                    <div class="product-card-rating mb-2">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                      <span class="text-muted ms-1 small">(29)</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="product-card-price">$2,150</span>
+                    </div>
+                  </div>
+                  <div class="product-card-add-bar">
+                    <button class="btn w-100 btn-add-to-cart" data-add-to-cart
+                      data-product-id="12" data-product-name="Falda Plisada Verde Salvia"
+                      data-product-price="2150" data-product-image="https://placehold.co/400x500/4A7C59/FFFFFF?text=Falda+Plisada"
+                      data-product-variant="Verde salvia / 38">
+                      <i class="bi bi-bag-plus me-1"></i>Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /products grid row -->
+
+            <!-- PAGINATION -->
+            <nav class="shop-pagination" aria-label="Paginación de productos">
+              <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                <span class="text-muted small">Página <strong>1</strong> de <strong>3</strong></span>
+                <ul class="pagination pagination-custom mb-0 gap-1">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Anterior"><i class="bi bi-chevron-left"></i></a>
+                  </li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></a>
+                  </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-muted small">Mostrar:</span>
+                  <select class="sort-select" aria-label="Productos por página" id="perPageSelect">
+                    <option value="12">12</option>
+                    <option value="24" selected>24</option>
+                    <option value="48">48</option>
+                  </select>
+                </div>
+              </div>
+            </nav>
+
+          </div><!-- /product-grid-area -->
+        </div><!-- /col-lg-9 -->
+      </div><!-- /main row -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+    MOBILE FILTER DRAWER
+  ============================================================ -->
+  <div class="mobile-filter-drawer" id="mobileFilterDrawer" role="dialog" aria-label="Filtros" aria-modal="true">
+    <div class="mobile-filter-backdrop" id="mobileFilterBackdrop"></div>
+    <div class="mobile-filter-panel">
+      <div class="mobile-filter-header">
+        <h6 class="mb-0 fw-bold">Filtros</h6>
+        <button class="btn border-0 p-0" id="closeMobileFilter" aria-label="Cerrar filtros">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="mobile-filter-body">
+
+        <!-- Categorías móvil -->
+        <div class="mb-4">
+          <p class="text-uppercase small fw-bold text-muted mb-2 tracking-wide" style="letter-spacing:0.1em;">Categoría</p>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="shop-cat-pill active" style="border-color:var(--color-neutral-300);color:var(--color-neutral-700);" data-mobile-cat="all">Todo</button>
+            <button class="shop-cat-pill" style="border-color:var(--color-neutral-300);color:var(--color-neutral-700);" data-mobile-cat="mujer">Mujer</button>
+            <button class="shop-cat-pill" style="border-color:var(--color-neutral-300);color:var(--color-neutral-700);" data-mobile-cat="hombre">Hombre</button>
+            <button class="shop-cat-pill" style="border-color:var(--color-neutral-300);color:var(--color-neutral-700);" data-mobile-cat="accesorios">Accesorios</button>
+            <button class="shop-cat-pill" style="border-color:var(--color-neutral-300);color:var(--color-neutral-700);" data-mobile-cat="calzado">Calzado</button>
+          </div>
+        </div>
+
+        <!-- Tallas móvil -->
+        <div class="mb-4">
+          <p class="text-uppercase small fw-bold text-muted mb-2" style="letter-spacing:0.1em;">Talla</p>
+          <div class="size-filter-grid">
+            <button class="size-filter-btn" data-size="XS">XS</button>
+            <button class="size-filter-btn" data-size="S">S</button>
+            <button class="size-filter-btn" data-size="M">M</button>
+            <button class="size-filter-btn" data-size="L">L</button>
+            <button class="size-filter-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <!-- Color móvil -->
+        <div class="mb-4">
+          <p class="text-uppercase small fw-bold text-muted mb-2" style="letter-spacing:0.1em;">Color</p>
+          <div class="color-filter-grid">
+            <div class="color-swatch-filter" style="background:#1A1A1A;" title="Negro"></div>
+            <div class="color-swatch-filter" style="background:#fff;border:1.5px solid #ddd;" title="Blanco"></div>
+            <div class="color-swatch-filter" style="background:#C8A97E;" title="Camel"></div>
+            <div class="color-swatch-filter" style="background:#6B6B6B;" title="Gris"></div>
+            <div class="color-swatch-filter" style="background:#7C3D2E;" title="Burdeos"></div>
+            <div class="color-swatch-filter" style="background:#2C4B6E;" title="Azul marino"></div>
+            <div class="color-swatch-filter" style="background:#4A7C59;" title="Verde salvia"></div>
+          </div>
+        </div>
+
+        <!-- Precio móvil -->
+        <div class="mb-4">
+          <p class="text-uppercase small fw-bold text-muted mb-2" style="letter-spacing:0.1em;">Precio (MXN)</p>
+          <input type="range" class="price-range-slider" min="0" max="8000" value="4000" step="100">
+          <div class="price-labels"><span>$0</span><span>$4,000</span><span>$8,000</span></div>
+          <div class="price-range-inputs mt-3">
+            <input type="number" class="price-input" placeholder="Mín" value="0">
+            <span class="price-range-sep">—</span>
+            <input type="number" class="price-input" placeholder="Máx" value="4000">
+          </div>
+        </div>
+
+        <!-- Disponibilidad móvil -->
+        <div class="mb-4">
+          <p class="text-uppercase small fw-bold text-muted mb-2" style="letter-spacing:0.1em;">Disponibilidad</p>
+          <ul class="filter-check-list">
+            <li class="filter-check-item">
+              <input type="checkbox" id="mInStock" checked><label for="mInStock">En stock</label>
+            </li>
+            <li class="filter-check-item">
+              <input type="checkbox" id="mOnSale"><label for="mOnSale">En oferta</label>
+            </li>
+            <li class="filter-check-item">
+              <input type="checkbox" id="mNewArrival"><label for="mNewArrival">Nuevos ingresos</label>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="mobile-filter-footer">
+        <button class="btn-secondary-custom flex-1 py-3 text-center" id="resetMobileFilters">
+          Limpiar
+        </button>
+        <button class="btn-primary-custom flex-1 py-3 text-center" id="applyMobileFilters">
+          Ver <span id="mobileResultCount">12</span> resultados
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    COMPARE BAR (floating)
+  ============================================================ -->
+  <div class="compare-bar" id="compareBar">
+    <div class="compare-bar-items">
+      <div class="compare-slot" id="compareSlot0"><span>Agregar producto</span></div>
+      <div class="compare-slot" id="compareSlot1"><span>Agregar producto</span></div>
+      <div class="compare-slot" id="compareSlot2"><span>Agregar producto</span></div>
+    </div>
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+      <span class="text-white opacity-50 small">Comparar seleccionados</span>
+      <button class="btn-primary-custom px-3 py-2 small" disabled id="compareNowBtn">
+        Comparar (<span id="compareCount">0</span>)
+      </button>
+      <button class="btn btn-sm btn-outline-secondary text-white border-white border-opacity-25" id="clearCompare">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer class="footer-main" role="contentinfo">
+    <div class="container">
+      <div class="row gx-5 gy-4">
+        <div class="col-12 col-md-4">
+          <div class="footer-brand"><span>E</span>BRUMPA</div>
+          <p class="footer-tagline">Moda con propósito. Cada pieza pensada para durar y destacar.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="footer-heading">Tienda</div>
+          <a href="index.html" class="footer-link">Inicio</a>
+          <a href="product.html" class="footer-link">Productos</a>
+          <a href="#" class="footer-link">Ofertas</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="footer-heading">Ayuda</div>
+          <a href="#" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Devoluciones</a>
+          <a href="#" class="footer-link">Envíos</a>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="footer-heading">Newsletter</div>
+          <form id="newsletter-form" novalidate class="d-flex gap-2" aria-label="Suscripción newsletter">
+            <input type="email" class="newsletter-input flex-1" placeholder="tu@correo.com" required aria-label="Email">
+            <button type="submit" class="btn-primary-custom flex-shrink-0" style="padding:0.6rem 1rem;">OK</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 EBRUMPA Store.</p>
+        <div class="payment-icons" aria-label="Métodos de pago">
+          <span class="payment-icon">VISA</span>
+          <span class="payment-icon">MC</span>
+          <span class="payment-icon">OXXO</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999;">
+    <div id="main-toast" class="toast align-items-center border-0 shadow" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2">
+          <span id="toast-icon" class="fs-5"></span>
+          <div>
+            <div class="fw-semibold small" id="toast-title"></div>
+            <div class="text-muted small" id="toast-message"></div>
+          </div>
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+    </div>
+  </div>
+
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+
+  <script>
+  /* ============================================================
+     SHOP PAGE — INTERACTIVE LOGIC
+  ============================================================ */
+  (function() {
+
+    // ---- State ----
+    const state = {
+      cat: 'all',
+      sale: false,
+      newOnly: false,
+      maxPrice: 4000,
+      minPrice: 0,
+      sizes: ['S', '40'],
+      colors: ['negro'],
+      sort: 'featured',
+      activeFilters: []
+    };
+
+    const ALL_ITEMS = document.querySelectorAll('.product-item');
+    const GRID = document.getElementById('productsGrid');
+    const NO_RESULTS = document.getElementById('noResults');
+    const ACTIVE_BAR = document.getElementById('activeFiltersBar');
+    const FILTER_TAGS_EL = document.getElementById('activeFilterTags');
+
+    // ---- Filter panels accordion ----
+    document.querySelectorAll('.filter-panel-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const panelId = 'panel-' + this.dataset.togglePanel;
+        const body = document.getElementById(panelId);
+        this.classList.toggle('open');
+        if (body) body.classList.toggle('open');
+      });
+    });
+
+    // ---- Category pills in banner ----
+    document.querySelectorAll('.shop-cat-pill[data-cat]').forEach(pill => {
+      pill.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.shop-cat-pill[data-cat]').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        state.cat = this.dataset.cat;
+        applyFilters();
+        updateSidebarCatHighlight(state.cat);
+      });
+    });
+
+    // ---- Sidebar category links ----
+    document.querySelectorAll('.filter-cat-list a[data-cat]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        state.cat = this.dataset.cat;
+        updateSidebarCatHighlight(state.cat);
+        updateBannerPillHighlight(state.cat);
+        applyFilters();
+      });
+    });
+
+    function updateSidebarCatHighlight(cat) {
+      document.querySelectorAll('.filter-cat-list a').forEach(l => l.classList.remove('active'));
+      const target = document.querySelector(`.filter-cat-list a[data-cat="${cat}"]`);
+      if (target) target.classList.add('active');
+    }
+    function updateBannerPillHighlight(cat) {
+      document.querySelectorAll('.shop-cat-pill[data-cat]').forEach(p => p.classList.remove('active'));
+      const target = document.querySelector(`.shop-cat-pill[data-cat="${cat}"]`);
+      if (target) target.classList.add('active');
+    }
+
+    // ---- Color swatches ----
+    document.querySelectorAll('.color-swatch-filter').forEach(sw => {
+      sw.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const col = this.dataset.color;
+        if (col) {
+          if (state.colors.includes(col)) {
+            state.colors = state.colors.filter(c => c !== col);
+          } else {
+            state.colors.push(col);
+          }
+        }
+        applyFilters();
+      });
+    });
+
+    // ---- Size buttons ----
+    document.querySelectorAll('.size-filter-btn:not(:disabled)').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const sz = this.dataset.size;
+        if (state.sizes.includes(sz)) {
+          state.sizes = state.sizes.filter(s => s !== sz);
+        } else {
+          state.sizes.push(sz);
+        }
+        applyFilters();
+      });
+    });
+
+    // ---- Price slider ----
+    const slider = document.getElementById('priceSlider');
+    const sliderVal = document.getElementById('sliderValue');
+    const priceMaxInput = document.getElementById('priceMax');
+    const priceMinInput = document.getElementById('priceMin');
+
+    if (slider) {
+      slider.addEventListener('input', function() {
+        const val = parseInt(this.value);
+        sliderVal.textContent = '$' + val.toLocaleString('es-MX');
+        if (priceMaxInput) priceMaxInput.value = val;
+      });
+    }
+    document.getElementById('applyPriceBtn')?.addEventListener('click', function() {
+      state.minPrice = parseInt(priceMinInput?.value || 0);
+      state.maxPrice = parseInt(priceMaxInput?.value || 8000);
+      applyFilters();
+    });
+
+    // ---- Availability checkboxes ----
+    document.getElementById('onSale')?.addEventListener('change', function() {
+      state.sale = this.checked;
+      applyFilters();
+    });
+    document.getElementById('newArrival')?.addEventListener('change', function() {
+      state.newOnly = this.checked;
+      applyFilters();
+    });
+
+    // ---- Sort ----
+    document.getElementById('sortSelect')?.addEventListener('change', function() {
+      state.sort = this.value;
+      applyFilters();
+    });
+
+    // ---- View toggle ----
+    document.getElementById('viewGrid')?.addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('viewList')?.classList.remove('active');
+      GRID.classList.remove('products-list-view');
+      ALL_ITEMS.forEach(item => {
+        item.classList.remove('col-12');
+        item.classList.add('col-6', 'col-md-4');
+      });
+    });
+    document.getElementById('viewList')?.addEventListener('click', function() {
+      this.classList.add('active');
+      document.getElementById('viewGrid')?.classList.remove('active');
+      GRID.classList.add('products-list-view');
+      ALL_ITEMS.forEach(item => {
+        item.classList.remove('col-6', 'col-md-4');
+        item.classList.add('col-12');
+      });
+    });
+
+    // ---- Main filter function ----
+    function applyFilters() {
+      let visible = 0;
+      state.activeFilters = [];
+
+      ALL_ITEMS.forEach(item => {
+        const cat = item.dataset.cat;
+        const price = parseFloat(item.dataset.price);
+        const isNew = item.dataset.new === 'true';
+        const isSale = item.dataset.sale === 'true';
+
+        let show = true;
+
+        if (state.cat !== 'all') {
+          if (state.cat === 'ofertas') {
+            if (!isSale) show = false;
+          } else if (cat !== state.cat) {
+            show = false;
+          }
+        }
+        if (price < state.minPrice || price > state.maxPrice) show = false;
+        if (state.sale && !isSale) show = false;
+        if (state.newOnly && !isNew) show = false;
+
+        if (show) {
+          item.style.display = '';
+          visible++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Sort visible items
+      sortGrid();
+
+      // Build active filter tags
+      if (state.cat !== 'all') {
+        state.activeFilters.push({ label: 'Categoría: ' + capitalize(state.cat), key: 'cat' });
+      }
+      if (state.maxPrice < 8000 || state.minPrice > 0) {
+        state.activeFilters.push({
+          label: `Precio: $${state.minPrice.toLocaleString()} – $${state.maxPrice.toLocaleString()}`,
+          key: 'price'
+        });
+      }
+      if (state.sale) state.activeFilters.push({ label: 'En oferta', key: 'sale' });
+      if (state.newOnly) state.activeFilters.push({ label: 'Nuevos ingresos', key: 'new' });
+
+      renderActiveFilterTags();
+      updateCounts(visible);
+      NO_RESULTS.classList.toggle('visible', visible === 0);
+    }
+
+    function sortGrid() {
+      const items = [...GRID.querySelectorAll('.product-item:not([style*="display: none"]),[style*="display:none"]')];
+      const visibleItems = [...GRID.querySelectorAll('.product-item')].filter(i => i.style.display !== 'none');
+
+      visibleItems.sort((a, b) => {
+        const pA = parseFloat(a.dataset.price);
+        const pB = parseFloat(b.dataset.price);
+        const rA = parseFloat(a.dataset.rating);
+        const rB = parseFloat(b.dataset.rating);
+        if (state.sort === 'price-asc') return pA - pB;
+        if (state.sort === 'price-desc') return pB - pA;
+        if (state.sort === 'rating') return rB - rA;
+        if (state.sort === 'newest') return (a.dataset.new === 'true' ? -1 : 1);
+        if (state.sort === 'bestseller') return (a.dataset.badge === 'bestseller' ? -1 : 1);
+        return 0;
+      });
+
+      visibleItems.forEach(item => GRID.appendChild(item));
+    }
+
+    function updateCounts(visible) {
+      document.getElementById('resultStart').textContent = visible > 0 ? '1' : '0';
+      document.getElementById('resultEnd').textContent = Math.min(visible, 24);
+      document.getElementById('resultTotal').textContent = visible;
+      document.getElementById('mobileResultCount').textContent = visible;
+    }
+
+    function renderActiveFilterTags() {
+      FILTER_TAGS_EL.innerHTML = '';
+      state.activeFilters.forEach(filter => {
+        const tag = document.createElement('div');
+        tag.className = 'active-filter-tag';
+        tag.innerHTML = `${filter.label}<button aria-label="Quitar filtro" data-key="${filter.key}"><i class="bi bi-x"></i></button>`;
+        tag.querySelector('button').addEventListener('click', () => removeFilter(filter.key));
+        FILTER_TAGS_EL.appendChild(tag);
+      });
+      ACTIVE_BAR.classList.toggle('hidden', state.activeFilters.length === 0);
+    }
+
+    function removeFilter(key) {
+      if (key === 'cat') {
+        state.cat = 'all';
+        updateSidebarCatHighlight('all');
+        updateBannerPillHighlight('all');
+      }
+      if (key === 'price') { state.minPrice = 0; state.maxPrice = 8000; }
+      if (key === 'sale') {
+        state.sale = false;
+        const el = document.getElementById('onSale');
+        if (el) el.checked = false;
+      }
+      if (key === 'new') {
+        state.newOnly = false;
+        const el = document.getElementById('newArrival');
+        if (el) el.checked = false;
+      }
+      applyFilters();
+    }
+
+    // ---- Clear all filters ----
+    document.getElementById('clearAllFilters')?.addEventListener('click', function() {
+      state.cat = 'all';
+      state.sale = false;
+      state.newOnly = false;
+      state.minPrice = 0;
+      state.maxPrice = 8000;
+      updateSidebarCatHighlight('all');
+      updateBannerPillHighlight('all');
+      document.getElementById('onSale') && (document.getElementById('onSale').checked = false);
+      document.getElementById('newArrival') && (document.getElementById('newArrival').checked = false);
+      if (slider) { slider.value = 8000; sliderVal.textContent = '$8,000'; }
+      if (priceMaxInput) priceMaxInput.value = 8000;
+      if (priceMinInput) priceMinInput.value = 0;
+      applyFilters();
+    });
+
+    // ---- Mobile filter drawer ----
+    const drawer = document.getElementById('mobileFilterDrawer');
+    document.getElementById('mobileFilterBtn')?.addEventListener('click', () => {
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeMobileFilter() {
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('closeMobileFilter')?.addEventListener('click', closeMobileFilter);
+    document.getElementById('mobileFilterBackdrop')?.addEventListener('click', closeMobileFilter);
+    document.getElementById('applyMobileFilters')?.addEventListener('click', () => {
+      closeMobileFilter();
+      applyFilters();
+    });
+    document.getElementById('resetMobileFilters')?.addEventListener('click', () => {
+      document.getElementById('clearAllFilters')?.click();
+      closeMobileFilter();
+    });
+
+    // Mobile category pills in drawer
+    document.querySelectorAll('[data-mobile-cat]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('[data-mobile-cat]').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        state.cat = this.dataset.mobileCat;
+      });
+    });
+
+    // ---- Compare functionality ----
+    const compareItems = [];
+    const compareBar = document.getElementById('compareBar');
+
+    document.querySelectorAll('[data-compare]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.product-card');
+        const name = this.dataset.name;
+        const img = this.dataset.img;
+        if (compareItems.length >= 3) {
+          window.showToast && window.showToast('Comparar', 'Máximo 3 productos para comparar.', 'error');
+          return;
+        }
+        const idx = compareItems.findIndex(i => i.name === name);
+        if (idx !== -1) {
+          compareItems.splice(idx, 1);
+        } else {
+          compareItems.push({ name, img });
+        }
+        updateCompareBar();
+      });
+    });
+
+    function updateCompareBar() {
+      document.getElementById('compareCount').textContent = compareItems.length;
+      for (let i = 0; i < 3; i++) {
+        const slot = document.getElementById('compareSlot' + i);
+        if (!slot) continue;
+        if (compareItems[i]) {
+          slot.innerHTML = `<img src="${compareItems[i].img}" alt="${compareItems[i].name}">
+            <button class="remove-compare" data-idx="${i}" aria-label="Quitar"><i class="bi bi-x"></i></button>`;
+          slot.querySelector('.remove-compare').addEventListener('click', e => {
+            e.stopPropagation();
+            compareItems.splice(parseInt(e.currentTarget.dataset.idx), 1);
+            updateCompareBar();
+          });
+        } else {
+          slot.innerHTML = '<span>Agregar producto</span>';
+        }
+      }
+      compareBar.classList.toggle('visible', compareItems.length > 0);
+      document.getElementById('compareNowBtn').disabled = compareItems.length < 2;
+    }
+
+    document.getElementById('clearCompare')?.addEventListener('click', () => {
+      compareItems.length = 0;
+      updateCompareBar();
+    });
+
+    // ---- Quick View (placeholder) ----
+    document.querySelectorAll('.quick-view-overlay').forEach(el => {
+      el.addEventListener('click', function() {
+        window.showToast && window.showToast('Vista rápida', 'Conecta con tu API de productos para mostrar el modal de vista rápida.', 'info');
+      });
+    });
+
+    // ---- URL query params on load ----
+    function initFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      const filter = params.get('filter');
+      if (cat && ['mujer','hombre','accesorios','calzado'].includes(cat)) {
+        state.cat = cat;
+        updateSidebarCatHighlight(cat);
+        updateBannerPillHighlight(cat);
+      }
+      if (filter === 'ofertas') {
+        state.cat = 'ofertas';
+        updateBannerPillHighlight('ofertas');
+      }
+      applyFilters();
+    }
+
+    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+
+    // ---- Init ----
+    initFromUrl();
+
+  })();
+  </script>
+</body>
+</html>

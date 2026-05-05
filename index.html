@@ -1,647 +1,880 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="E-Brumpa Store — Diseño moderno, envío rápido y calidad premium en cada producto." />
-  <meta property="og:title" content="E-Brumpa Store" />
-  <meta property="og:description" content="Tu tienda de confianza. Productos seleccionados, precios justos." />
-  <meta property="og:type" content="website" />
-  <title>E-Brumpa Store — Inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NEXO Store — Moda y estilo premium. Descubre las últimas tendencias en ropa, accesorios y más.">
+  <meta property="og:title" content="NEXO Store — Moda Premium">
+  <meta property="og:description" content="Descubre las últimas tendencias en ropa, accesorios y más con envío gratis en pedidos mayores a $1,500 MXN.">
+  <meta property="og:type" content="website">
+  <title>NEXO Store — Moda Premium</title>
 
-  <!-- Google Fonts: Fraunces (display) + DM Sans (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { DEFAULT: '#FF0000', dark: '#CC0000', light: '#e0f7f7' },
-            neutral: { 50: '#f8fafc', 100: '#f1f5f9', 800: '#1f2937', 900: '#111827' },
-            cream: '#faf8f5',
-          },
-          fontFamily: {
-            display: ['Fraunces', 'Georgia', 'serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Alpine.js para interactividad ligera -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts: Playfair Display + DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-body bg-cream text-neutral-800 antialiased">
+<body data-page="index">
 
-  <!-- ═══════════════════════════════════════════
-       HEADER
-  ═══════════════════════════════════════════ -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100 shadow-sm" x-data="{ mobileOpen: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+  <!-- ── TOPBAR ──────────────────────────────────────────── -->
+  <div class="topbar">
+    <span>🚚 Envío gratis en pedidos mayores a $1,500 MXN — </span>
+    <a href="product.html">Ver colección nueva</a>
+  </div>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────── -->
+  <nav class="navbar-custom" aria-label="Navegación principal">
+    <div class="container h-100">
+      <div class="d-flex align-items-center justify-content-between h-100 gap-3">
 
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 group" aria-label="E-Brumpa Store - Inicio">
-          <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-            <img src="svg/Favicon-color.svg" alt="Brumpa Logo" class="brand-image img-circle elevation-3" style="opacity: .8;background-color: white">
-          </div>
-          <span class="font-display text-xl font-600 tracking-tight text-neutral-900">E-Brumpa</span>
+        <a href="index.html" class="navbar-brand text-decoration-none flex-shrink-0">
+          NEX<span>O</span>
         </a>
 
-        <!-- Buscador central (desktop) -->
-        <form class="hidden md:flex flex-1 max-w-md mx-8" role="search" aria-label="Buscar productos">
-          <div class="relative w-full">
-            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
-              </svg>
-            </span>
-            <input type="search" placeholder="Buscar productos…" aria-label="Buscar productos"
-              class="w-full pl-10 pr-4 py-2 text-sm rounded-full border border-neutral-200 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" />
-          </div>
-        </form>
+        <!-- Nav links (desktop) -->
+        <div class="d-none d-lg-flex align-items-center gap-1">
+          <a href="index.html" class="nav-link-custom active" aria-current="page">Inicio</a>
+          <a href="product.html" class="nav-link-custom">Productos</a>
+          <a href="blog.html" class="nav-link-custom">Blog</a>
+          <a href="about.html" class="nav-link-custom">Nosotros</a>
+          <a href="#" class="nav-link-custom" style="color:var(--color-primary);font-weight:700;">Ofertas 🔥</a>
+        </div>
 
-        <!-- Iconos derecha -->
-        <div class="flex items-center gap-1 sm:gap-2">
-          <a href="#" class="p-2 rounded-full hover:bg-neutral-100 transition-colors hidden sm:flex" aria-label="Mi cuenta">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"/>
-            </svg>
-          </a>
-          <!-- <a href="#" class="p-2 rounded-full hover:bg-neutral-100 transition-colors hidden sm:flex" aria-label="Favoritos">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 0 1 6.364 0L12 7.636l1.318-1.318a4.5 4.5 0 1 1 6.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 0 1 0-6.364z"/>
-            </svg>
-          </a> -->
-          <!-- Carrito con badge -->
-          <a href="cart.html" class="relative p-2 rounded-full hover:bg-neutral-100 transition-colors" aria-label="Carrito de compras">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-            </svg>
-            <span id="cart-badge" class="cart-badge absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold leading-none hidden" aria-live="polite">0</span>
-          </a>
+        <!-- Search bar (desktop) -->
+        <div class="search-wrapper d-none d-md-block">
+          <i class="bi bi-search search-icon" aria-hidden="true"></i>
+          <input type="search" class="search-input-custom" placeholder="Buscar productos..." aria-label="Buscar productos">
+        </div>
 
-          <!-- Burger mobile -->
-          <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-full hover:bg-neutral-100 transition-colors ml-1" :aria-expanded="mobileOpen" aria-controls="mobile-menu" aria-label="Abrir menú">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
+        <!-- Right icons -->
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="btn-icon d-none d-md-inline-flex" aria-label="Mi cuenta">
+            <i class="bi bi-person" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="btn-icon d-none d-md-inline-flex" aria-label="Favoritos">
+            <i class="bi bi-heart" aria-hidden="true"></i>
+          </a>
+          <a href="cart.html" class="btn-icon cart-icon-wrapper" aria-label="Carrito de compras">
+            <i class="bi bi-bag" aria-hidden="true"></i>
+            <span class="cart-badge" aria-live="polite" aria-label="Artículos en carrito">0</span>
+          </a>
+          <!-- Hamburger mobile -->
+          <button class="btn-icon d-lg-none" type="button"
+                  data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+                  aria-controls="mobileMenu" aria-label="Abrir menú">
+            <i class="bi bi-list" style="font-size:1.2rem;" aria-hidden="true"></i>
           </button>
         </div>
-      </div>
 
-      <!-- Nav principal desktop -->
-      <nav class="hidden md:flex items-center gap-6 pb-3 text-sm font-medium" aria-label="Navegación principal">
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Inicio</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Ropa</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Electrónica</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Hogar</a>
-        <a href="cart.html" class="text-neutral-600 hover:text-primary transition-colors">Carrito</a>
-        <a href="checkout.html" class="text-neutral-600 hover:text-primary transition-colors">Checkout</a>
-        <a href="gracias.html" class="text-neutral-600 hover:text-primary transition-colors">Gracias</a>
-        <a href="#" class="ml-2 px-4 py-1.5 bg-primary text-white text-xs font-semibold rounded-full hover:bg-primary-dark transition-colors shadow-sm">🔥 Ofertas</a>
-      </nav>
+      </div>
     </div>
+  </nav>
 
-    <!-- ═══ OFFCANVAS MOBILE MENU ═══ -->
-    <div id="mobile-menu" x-show="mobileOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="-translate-x-full opacity-0" x-transition:enter-end="translate-x-0 opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="translate-x-0 opacity-100" x-transition:leave-end="-translate-x-full opacity-0"
-      class="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-50 flex flex-col md:hidden" aria-label="Menú móvil" role="dialog" aria-modal="true">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-100">
-        <span class="font-display text-lg font-600 text-neutral-900">E-Brumpa</span>
-        <button @click="mobileOpen = false" class="p-2 rounded-full hover:bg-neutral-100" aria-label="Cerrar menú">
-          <img src="svg/Favicon-color.svg" alt="Brumpa Logo" class="brand-image img-circle elevation-3" style="opacity: .8;background-color: white">
-        </button>
-      </div>
+  <!-- ── OFFCANVAS MOBILE MENU ───────────────────────────── -->
+  <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <span class="navbar-brand" id="mobileMenuLabel">NEX<span style="color:var(--color-primary);">O</span></span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+    </div>
+    <div class="offcanvas-body">
       <!-- Search mobile -->
-      <div class="px-5 py-3 border-b border-neutral-100">
-        <div class="relative">
-          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg></span>
-          <input type="search" placeholder="Buscar…" class="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-neutral-200 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary/40" />
-        </div>
+      <div class="search-wrapper mb-4">
+        <i class="bi bi-search search-icon" aria-hidden="true"></i>
+        <input type="search" class="search-input-custom" placeholder="Buscar..." aria-label="Buscar">
       </div>
-      <nav class="flex-1 overflow-y-auto px-5 py-4 space-y-1" aria-label="Menú móvil">
-        <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Inicio</a>
-        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Ropa</a>
-        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Electrónica</a>
-        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Hogar</a>
-        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Accesorios</a>
-        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold text-primary bg-primary/10">🔥 Ofertas</a>
+      <nav aria-label="Navegación móvil">
+        <a href="index.html" class="mobile-nav-link text-decoration-none">
+          Inicio <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href="product.html" class="mobile-nav-link text-decoration-none">
+          Productos <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href="blog.html" class="mobile-nav-link text-decoration-none">
+          Blog <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href="about.html" class="mobile-nav-link text-decoration-none">
+          Nosotros <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="mobile-nav-link text-decoration-none" style="color:var(--color-primary);">
+          Ofertas 🔥 <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
       </nav>
-      <div class="px-5 py-4 border-t border-neutral-100 flex gap-4 text-sm text-neutral-500">
-        <a href="#" class="hover:text-primary transition-colors">Mi cuenta</a>
-        <a href="#" class="hover:text-primary transition-colors">Favoritos</a>
-        <a href="cart.html" class="hover:text-primary transition-colors">Carrito</a>
+      <hr class="my-4">
+      <div class="d-flex gap-2">
+        <a href="#" class="btn-secondary-custom flex-fill justify-content-center">
+          <i class="bi bi-person me-1" aria-hidden="true"></i> Cuenta
+        </a>
+        <a href="cart.html" class="btn-primary-custom flex-fill justify-content-center">
+          <i class="bi bi-bag me-1" aria-hidden="true"></i> Carrito
+        </a>
       </div>
     </div>
-    <!-- Overlay offcanvas -->
-    <div x-show="mobileOpen" x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-      @click="mobileOpen = false" class="fixed inset-0 bg-black/40 z-40 md:hidden" aria-hidden="true"></div>
-  </header>
+  </div>
 
-  <!-- ═══════════════════════════════════════════
-       HERO BANNER
-  ═══════════════════════════════════════════ -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-neutral-800 to-primary min-h-[520px] flex items-center" aria-label="Banner principal">
-    <!-- Decorative circles -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" aria-hidden="true"></div>
-    <div class="absolute bottom-0 left-10 w-64 h-64 bg-primary/10 rounded-full translate-y-1/2 blur-2xl" aria-hidden="true"></div>
+  <main>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 flex flex-col lg:flex-row items-center gap-12">
-      <div class="flex-1 text-center lg:text-left">
-        <span class="inline-block text-xs font-semibold tracking-widest text-primary uppercase bg-primary/20 px-3 py-1 rounded-full mb-4">Nueva Colección 2025</span>
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-600 text-white leading-tight mb-5">
-          Estilo que <br class="hidden sm:block"/><em class="text-primary not-italic">habla</em> por ti
-        </h1>
-        <p class="text-base sm:text-lg text-neutral-300 max-w-md mx-auto lg:mx-0 mb-8 font-300">
-          Descubre productos cuidadosamente seleccionados. Calidad, diseño y entrega rápida — todo en un solo lugar.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-          <a href="#productos" class="btn-primary inline-flex items-center justify-center gap-2">
-            Ver colección
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          <a href="#" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-white/30 text-white text-sm font-medium hover:bg-white/10 transition-all">
-            Ver Ofertas
-          </a>
-        </div>
-      </div>
-      <!-- Hero visual placeholder -->
-      <div class="flex-1 flex justify-center lg:justify-end">
-        <div class="relative">
-          <div class="w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
-            <img src="assets/images/hero-product.jpg" alt="Producto destacado de la colección" class="w-full h-full object-cover rounded-3xl" loading="lazy" onerror="this.src='https://placehold.co/320x320/FF0000/ffffff?text=E-Brumpa'" />
-          </div>
-          <!-- Floating badge -->
-          <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-4 py-3">
-            <p class="text-xs text-neutral-500 font-medium">Más vendido</p>
-            <p class="text-sm font-semibold text-neutral-900">Colección Verano</p>
-            <div class="flex text-yellow-400 text-xs mt-1" aria-label="Calificación 4.9 de 5 estrellas">★★★★★ <span class="text-neutral-500 ml-1">4.9</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       BENEFICIOS / LOGÍSTICA
-  ═══════════════════════════════════════════ -->
-  <section class="bg-white border-b border-neutral-100" aria-label="Beneficios de compra">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></svg>
-          </div>
-          <div><p class="text-sm font-semibold text-neutral-800">Envío gratis</p><p class="text-xs text-neutral-500">En pedidos +$499</p></div>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"/></svg>
-          </div>
-          <div><p class="text-sm font-semibold text-neutral-800">Devoluciones</p><p class="text-xs text-neutral-500">30 días sin preguntas</p></div>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0zm-5 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
-          </div>
-          <div><p class="text-sm font-semibold text-neutral-800">Soporte 24/7</p><p class="text-xs text-neutral-500">Chat y WhatsApp</p></div>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <div><p class="text-sm font-semibold text-neutral-800">Pago seguro</p><p class="text-xs text-neutral-500">SSL + encriptado</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       CATEGORÍAS DESTACADAS
-  ═══════════════════════════════════════════ -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" aria-label="Categorías">
-    <h2 class="font-display text-3xl font-600 text-neutral-900 mb-2">Explora categorías</h2>
-    <p class="text-neutral-500 text-sm mb-8">Encuentra exactamente lo que buscas</p>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <!-- Categoría 1 -->
-      <a href="#" class="group relative overflow-hidden rounded-2xl aspect-square bg-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <img src="assets/images/cat-ropa.jpg" alt="Categoría Ropa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/1f2937/ffffff?text=Ropa'" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-4">
-          <p class="text-white font-display text-lg font-600">Ropa</p>
-          <p class="text-white/70 text-xs mt-0.5">128 productos</p>
-        </div>
-      </a>
-      <!-- Categoría 2 -->
-      <a href="#" class="group relative overflow-hidden rounded-2xl aspect-square bg-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <img src="assets/images/cat-electronica.jpg" alt="Categoría Electrónica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/FF0000/ffffff?text=Electrónica'" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-4">
-          <p class="text-white font-display text-lg font-600">Electrónica</p>
-          <p class="text-white/70 text-xs mt-0.5">85 productos</p>
-        </div>
-      </a>
-      <!-- Categoría 3 -->
-      <a href="#" class="group relative overflow-hidden rounded-2xl aspect-square bg-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <img src="assets/images/cat-hogar.jpg" alt="Categoría Hogar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/f1f5f9/1f2937?text=Hogar'" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-4">
-          <p class="text-white font-display text-lg font-600">Hogar</p>
-          <p class="text-white/70 text-xs mt-0.5">64 productos</p>
-        </div>
-      </a>
-      <!-- Categoría 4 -->
-      <a href="#" class="group relative overflow-hidden rounded-2xl aspect-square bg-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <img src="assets/images/cat-accesorios.jpg" alt="Categoría Accesorios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/FF0000/ffffff?text=Accesorios'" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-4">
-          <p class="text-white font-display text-lg font-600">Accesorios</p>
-          <p class="text-white/70 text-xs mt-0.5">210 productos</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       PRODUCTOS DESTACADOS
-  ═══════════════════════════════════════════ -->
-  <section id="productos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16" aria-label="Productos destacados">
-    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
-      <div>
-        <h2 class="font-display text-3xl font-600 text-neutral-900 mb-1">Más populares</h2>
-        <p class="text-neutral-500 text-sm">Los favoritos de nuestra comunidad</p>
-      </div>
-      <!-- Filtros rápidos -->
-      <div class="flex gap-2 flex-wrap" role="group" aria-label="Filtrar productos">
-        <button data-filter="all" onclick="filterProducts('all')" class="filter-btn active chip-filter">Todos</button>
-        <button data-filter="new" onclick="filterProducts('new')" class="filter-btn chip-filter">Nuevos</button>
-        <button data-filter="sale" onclick="filterProducts('sale')" class="filter-btn chip-filter">Ofertas</button>
-        <button data-filter="popular" onclick="filterProducts('popular')" class="filter-btn chip-filter">Más vendidos</button>
-      </div>
-    </div>
-
-    <!-- Grid de productos -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="products-grid">
-
-      <!-- Producto 1 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="new popular" aria-label="Sneakers E-Brumpa Air">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-1.jpg" alt="Sneakers E-Brumpa Air — color blanco con detalles teal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/e0f7f7/FF0000?text=Sneakers'" />
-          <span class="badge-new absolute top-3 left-3">Nuevo</span>
-          <!-- Hover actions overlay -->
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:1, name:'Sneakers E-Brumpa Air', price:1299, image:'https://placehold.co/400x400/e0f7f7/FF0000?text=Sneakers', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Ropa</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Sneakers E-Brumpa Air</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.8 de 5">
-            <span class="text-yellow-400 text-xs">★★★★★</span>
-            <span class="text-neutral-400 text-xs">(124)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <p class="text-primary font-bold text-base">$1,299</p>
-            <button onclick="addToCart({id:1, name:'Sneakers E-Brumpa Air', price:1299, image:'https://placehold.co/400x400/e0f7f7/FF0000?text=Sneakers', qty:1})" aria-label="Añadir Sneakers E-Brumpa Air al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 2 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="sale popular" aria-label="Auriculares Pro X">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-2.jpg" alt="Auriculares inalámbricos Pro X en color negro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/1f2937/ffffff?text=Auriculares'" />
-          <span class="badge-sale absolute top-3 left-3">-25%</span>
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:2, name:'Auriculares Pro X', price:899, image:'https://placehold.co/400x400/1f2937/ffffff?text=Auriculares', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Electrónica</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Auriculares Pro X</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.7 de 5">
-            <span class="text-yellow-400 text-xs">★★★★☆</span>
-            <span class="text-neutral-400 text-xs">(87)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-primary font-bold text-base">$899</p>
-              <p class="text-neutral-400 text-xs line-through">$1,199</p>
+    <!-- ── HERO ────────────────────────────────────────────── -->
+    <section class="hero-section" aria-label="Banner principal">
+      <div class="hero-bg" role="img" aria-label="Colección de moda de temporada"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="row">
+          <div class="col-12 col-md-10 col-lg-7">
+            <div class="hero-eyebrow">Nueva Temporada 2024</div>
+            <h1 class="hero-title">Viste con <em>intención</em>,<br>vive con estilo.</h1>
+            <p class="hero-subtitle">Descubre piezas curadas con materiales premium que elevan tu presencia en cada momento.</p>
+            <div class="hero-cta-group">
+              <a href="product.html" class="btn-primary-custom">
+                <i class="bi bi-arrow-right" aria-hidden="true"></i> Explorar colección
+              </a>
+              <a href="about.html" class="btn-secondary-custom" style="border-color:rgba(255,255,255,0.5);color:#fff;">
+                Conocer más
+              </a>
             </div>
-            <button onclick="addToCart({id:2, name:'Auriculares Pro X', price:899, image:'https://placehold.co/400x400/1f2937/ffffff?text=Auriculares', qty:1})" aria-label="Añadir Auriculares Pro X al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
           </div>
         </div>
-      </article>
+      </div>
+      <!-- Scroll indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-indicator"><div class="scroll-dot"></div></div>
+        <span>Scroll</span>
+      </div>
+    </section>
 
-      <!-- Producto 3 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="new" aria-label="Mochila Urban Canvas">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-3.jpg" alt="Mochila Urban Canvas color beige" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/f1f5f9/1f2937?text=Mochila'" />
-          <span class="badge-new absolute top-3 left-3">Nuevo</span>
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:3, name:'Mochila Urban Canvas', price:749, image:'https://placehold.co/400x400/f1f5f9/1f2937?text=Mochila', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Accesorios</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Mochila Urban Canvas</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.9 de 5">
-            <span class="text-yellow-400 text-xs">★★★★★</span>
-            <span class="text-neutral-400 text-xs">(203)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <p class="text-primary font-bold text-base">$749</p>
-            <button onclick="addToCart({id:3, name:'Mochila Urban Canvas', price:749, image:'https://placehold.co/400x400/f1f5f9/1f2937?text=Mochila', qty:1})" aria-label="Añadir Mochila Urban Canvas al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 4 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="sale" aria-label="Lámpara Nórdica Flex">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-4.jpg" alt="Lámpara de escritorio Nórdica Flex color blanco" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/faf8f5/1f2937?text=Lámpara'" />
-          <span class="badge-sale absolute top-3 left-3">-15%</span>
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:4, name:'Lámpara Nórdica Flex', price:449, image:'https://placehold.co/400x400/faf8f5/1f2937?text=Lámpara', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Hogar</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Lámpara Nórdica Flex</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.6 de 5">
-            <span class="text-yellow-400 text-xs">★★★★☆</span>
-            <span class="text-neutral-400 text-xs">(56)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-primary font-bold text-base">$449</p>
-              <p class="text-neutral-400 text-xs line-through">$529</p>
+    <!-- ── BENEFITS BAR ─────────────────────────────────────── -->
+    <section class="py-0 border-bottom" aria-label="Beneficios">
+      <div class="container">
+        <div class="row gx-0 gy-0">
+          <div class="col-12 col-sm-6 col-lg-3 border-end-sm animate-on-scroll">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true"><i class="bi bi-truck"></i></div>
+              <div>
+                <div class="benefit-title">Envío gratis</div>
+                <div class="benefit-desc">En pedidos mayores a $1,500 MXN a todo México.</div>
+              </div>
             </div>
-            <button onclick="addToCart({id:4, name:'Lámpara Nórdica Flex', price:449, image:'https://placehold.co/400x400/faf8f5/1f2937?text=Lámpara', qty:1})" aria-label="Añadir Lámpara al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
           </div>
-        </div>
-      </article>
-
-      <!-- Producto 5 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="popular" aria-label="Reloj Minimal Steel">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-5.jpg" alt="Reloj Minimal Steel de acero inoxidable" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/FF0000/ffffff?text=Reloj'" />
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:5, name:'Reloj Minimal Steel', price:2199, image:'https://placehold.co/400x400/FF0000/ffffff?text=Reloj', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Accesorios</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Reloj Minimal Steel</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.9 de 5">
-            <span class="text-yellow-400 text-xs">★★★★★</span>
-            <span class="text-neutral-400 text-xs">(311)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <p class="text-primary font-bold text-base">$2,199</p>
-            <button onclick="addToCart({id:5, name:'Reloj Minimal Steel', price:2199, image:'https://placehold.co/400x400/FF0000/ffffff?text=Reloj', qty:1})" aria-label="Añadir Reloj al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 6 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="new sale" aria-label="Taza Cerámica Artesanal">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-6.jpg" alt="Taza de cerámica artesanal color terracota" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/f1f5f9/1f2937?text=Taza'" />
-          <span class="badge-new absolute top-3 left-3">Nuevo</span>
-          <span class="badge-sale absolute top-3 right-3">-10%</span>
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:6, name:'Taza Cerámica Artesanal', price:189, image:'https://placehold.co/400x400/f1f5f9/1f2937?text=Taza', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Hogar</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Taza Cerámica Artesanal</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.8 de 5">
-            <span class="text-yellow-400 text-xs">★★★★★</span>
-            <span class="text-neutral-400 text-xs">(74)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-primary font-bold text-base">$189</p>
-              <p class="text-neutral-400 text-xs line-through">$210</p>
+          <div class="col-12 col-sm-6 col-lg-3 border-end-sm animate-on-scroll">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true"><i class="bi bi-arrow-return-left"></i></div>
+              <div>
+                <div class="benefit-title">30 días de devolución</div>
+                <div class="benefit-desc">Devoluciones sin complicaciones, sin preguntas.</div>
+              </div>
             </div>
-            <button onclick="addToCart({id:6, name:'Taza Cerámica Artesanal', price:189, image:'https://placehold.co/400x400/f1f5f9/1f2937?text=Taza', qty:1})" aria-label="Añadir Taza al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
           </div>
-        </div>
-      </article>
-
-      <!-- Producto 7 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="popular" aria-label="Camiseta Lino Premium">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-7.jpg" alt="Camiseta de lino premium color natural" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/faf8f5/1f2937?text=Camiseta'" />
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:7, name:'Camiseta Lino Premium', price:599, image:'https://placehold.co/400x400/faf8f5/1f2937?text=Camiseta', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Ropa</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Camiseta Lino Premium</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.7 de 5">
-            <span class="text-yellow-400 text-xs">★★★★☆</span>
-            <span class="text-neutral-400 text-xs">(158)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <p class="text-primary font-bold text-base">$599</p>
-            <button onclick="addToCart({id:7, name:'Camiseta Lino Premium', price:599, image:'https://placehold.co/400x400/faf8f5/1f2937?text=Camiseta', qty:1})" aria-label="Añadir Camiseta al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Producto 8 -->
-      <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden" data-category="sale new" aria-label="Planta Suculenta Set">
-        <div class="relative overflow-hidden aspect-square bg-neutral-100">
-          <img src="assets/images/product-8.jpg" alt="Set de suculentas en macetas de cerámica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x400/e0f7f7/FF0000?text=Suculentas'" />
-          <span class="badge-sale absolute top-3 left-3">-20%</span>
-          <div class="product-overlay absolute inset-0 bg-black/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
-            <a href="product.html" class="px-5 py-2 bg-white text-neutral-900 text-sm font-semibold rounded-full hover:bg-neutral-100 transition-colors w-40 text-center">Ver detalle</a>
-            <button onclick="addToCart({id:8, name:'Planta Suculenta Set', price:319, image:'https://placehold.co/400x400/e0f7f7/FF0000?text=Suculentas', qty:1})" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors w-40 text-center">+ Carrito</button>
-          </div>
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-neutral-400 mb-1 font-medium">Hogar</p>
-          <h3 class="font-semibold text-neutral-900 text-sm leading-snug mb-2">Planta Suculenta Set</h3>
-          <div class="flex items-center gap-1 mb-2" aria-label="Calificación 4.8 de 5">
-            <span class="text-yellow-400 text-xs">★★★★★</span>
-            <span class="text-neutral-400 text-xs">(92)</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-primary font-bold text-base">$319</p>
-              <p class="text-neutral-400 text-xs line-through">$399</p>
+          <div class="col-12 col-sm-6 col-lg-3 border-end-sm animate-on-scroll">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true"><i class="bi bi-headset"></i></div>
+              <div>
+                <div class="benefit-title">Soporte 24/7</div>
+                <div class="benefit-desc">Estamos aquí cuando nos necesites, siempre.</div>
+              </div>
             </div>
-            <button onclick="addToCart({id:8, name:'Planta Suculenta Set', price:319, image:'https://placehold.co/400x400/e0f7f7/FF0000?text=Suculentas', qty:1})" aria-label="Añadir Suculentas al carrito" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors hover:scale-110 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-            </button>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3 animate-on-scroll">
+            <div class="benefit-item">
+              <div class="benefit-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <div class="benefit-title">Pago 100% seguro</div>
+                <div class="benefit-desc">Tus datos siempre protegidos con cifrado SSL.</div>
+              </div>
+            </div>
           </div>
         </div>
-      </article>
-
-    </div><!-- /products-grid -->
-
-    <div class="text-center mt-10">
-      <a href="#" class="btn-outline inline-flex items-center gap-2">
-        Ver todos los productos
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       TESTIMONIOS
-  ═══════════════════════════════════════════ -->
-  <section class="bg-white py-16" aria-label="Testimonios de clientes">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-display text-3xl font-600 text-neutral-900 mb-2 text-center">Lo que dicen nuestros clientes</h2>
-      <p class="text-neutral-500 text-sm mb-10 text-center">Más de 12,000 compras satisfechas</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <blockquote class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-          <div class="flex text-yellow-400 text-sm mb-3" aria-label="5 estrellas">★★★★★</div>
-          <p class="text-neutral-700 text-sm leading-relaxed mb-4">"Increíble calidad y llegó rapidísimo. Definitivamente seguiré comprando aquí. El empaque es hermoso también."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm" aria-hidden="true">M</div>
-            <div><p class="text-sm font-semibold text-neutral-900">María G.</p><p class="text-xs text-neutral-400">Ciudad de México</p></div>
-          </div>
-        </blockquote>
-        <blockquote class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-          <div class="flex text-yellow-400 text-sm mb-3" aria-label="5 estrellas">★★★★★</div>
-          <p class="text-neutral-700 text-sm leading-relaxed mb-4">"Los auriculares superaron mis expectativas. Muy buena atención al cliente cuando tuve una duda."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm" aria-hidden="true">C</div>
-            <div><p class="text-sm font-semibold text-neutral-900">Carlos R.</p><p class="text-xs text-neutral-400">Guadalajara</p></div>
-          </div>
-        </blockquote>
-        <blockquote class="bg-neutral-50 rounded-2xl p-6 border border-neutral-100">
-          <div class="flex text-yellow-400 text-sm mb-3" aria-label="5 estrellas">★★★★☆</div>
-          <p class="text-neutral-700 text-sm leading-relaxed mb-4">"Muy buena relación calidad-precio. El proceso de devolución fue muy sencillo y sin complicaciones."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm" aria-hidden="true">A</div>
-            <div><p class="text-sm font-semibold text-neutral-900">Ana P.</p><p class="text-xs text-neutral-400">Monterrey</p></div>
-          </div>
-        </blockquote>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════ -->
-  <footer class="bg-neutral-900 text-neutral-300" aria-label="Pie de página">
-    <!-- Newsletter -->
-    <div class="border-b border-neutral-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="font-display text-xl font-600 text-white mb-1">Únete a la comunidad</h3>
-          <p class="text-neutral-400 text-sm">Recibe ofertas exclusivas y novedades en tu correo.</p>
+    <!-- ── CATEGORÍAS ────────────────────────────────────────── -->
+    <section class="section-py" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Explorar</div>
+          <h2 class="section-title" id="categories-title">Categorías destacadas</h2>
+          <p class="section-subtitle">Encuentra exactamente lo que buscas entre nuestra selección curada.</p>
         </div>
-        <form class="flex gap-2 w-full md:w-auto" aria-label="Suscripción al newsletter">
-          <input type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico para newsletter" class="flex-1 md:w-64 px-4 py-2.5 rounded-full text-sm bg-neutral-800 border border-neutral-700 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary/40" />
-          <button type="submit" class="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors">Suscribirse</button>
-        </form>
-      </div>
-    </div>
-    <!-- Links -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-7 h-7 bg-primary rounded-lg flex items-center justify-center" aria-hidden="true">
-            <img src="svg/Favicon-color.svg" alt="Brumpa Logo" class="brand-image img-circle elevation-3" style="opacity: .8;background-color: white">
+        <div class="row gx-4 gy-4">
+          <div class="col-6 col-lg-3 animate-on-scroll">
+            <a href="product.html" class="category-card d-block text-decoration-none" aria-label="Categoría: Mujer">
+              <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Moda mujer" loading="lazy">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-content">
+                <div class="category-card-title">Mujer</div>
+                <div class="category-card-count">128 productos</div>
+              </div>
+              <div class="category-card-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+            </a>
           </div>
-          <span class="font-display text-lg font-600 text-white">E-Brumpa</span>
+          <div class="col-6 col-lg-3 animate-on-scroll">
+            <a href="product.html" class="category-card d-block text-decoration-none" aria-label="Categoría: Hombre">
+              <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600&q=80" alt="Moda hombre" loading="lazy">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-content">
+                <div class="category-card-title">Hombre</div>
+                <div class="category-card-count">96 productos</div>
+              </div>
+              <div class="category-card-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+            </a>
+          </div>
+          <div class="col-6 col-lg-3 animate-on-scroll">
+            <a href="product.html" class="category-card d-block text-decoration-none" aria-label="Categoría: Accesorios">
+              <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80" alt="Accesorios de moda" loading="lazy">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-content">
+                <div class="category-card-title">Accesorios</div>
+                <div class="category-card-count">74 productos</div>
+              </div>
+              <div class="category-card-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+            </a>
+          </div>
+          <div class="col-6 col-lg-3 animate-on-scroll">
+            <a href="product.html" class="category-card d-block text-decoration-none" aria-label="Categoría: Calzado">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Calzado premium" loading="lazy">
+              <div class="category-card-overlay"></div>
+              <div class="category-card-content">
+                <div class="category-card-title">Calzado</div>
+                <div class="category-card-count">52 productos</div>
+              </div>
+              <div class="category-card-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+            </a>
+          </div>
         </div>
-        <p class="text-neutral-400 text-xs leading-relaxed">Tu tienda de confianza. Productos seleccionados con calidad garantizada.</p>
       </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4">Ayuda</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-primary transition-colors">Centro de ayuda</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Seguir pedido</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Devoluciones</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4">Empresa</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-primary transition-colors">Acerca de</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Trabaja con nosotros</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors">Privacidad</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-sm font-semibold text-white mb-4">Síguenos</h4>
-        <div class="flex gap-3 mb-6">
-          <a href="#" aria-label="Instagram" class="w-9 h-9 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="w-9 h-9 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="#" aria-label="Twitter / X" class="w-9 h-9 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </section>
+
+    <!-- ── PRODUCTOS DESTACADOS ──────────────────────────────── -->
+    <section class="section-py bg-cream" aria-labelledby="products-title" id="productos">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+          <div class="section-header mb-0">
+            <div class="section-eyebrow">Selección</div>
+            <h2 class="section-title" id="products-title">Productos destacados</h2>
+          </div>
+          <a href="product.html" class="btn-secondary-custom d-none d-md-inline-flex">
+            Ver todos <i class="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
-        <!-- Métodos de pago -->
-        <p class="text-xs text-neutral-500 mb-2">Métodos de pago</p>
-        <div class="flex gap-2 flex-wrap">
-          <span class="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 font-mono">VISA</span>
-          <span class="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 font-mono">MC</span>
-          <span class="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 font-mono">AMEX</span>
-          <span class="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 font-mono">PayPal</span>
+
+        <!-- Filtros -->
+        <div class="filter-pills" role="group" aria-label="Filtros de productos">
+          <button class="filter-pill active" data-filter="all" type="button">Todos</button>
+          <button class="filter-pill" data-filter="bestseller" type="button">Más vendidos</button>
+          <button class="filter-pill" data-filter="new" type="button">Nuevos</button>
+          <button class="filter-pill" data-filter="sale" type="button">Ofertas</button>
+          <button class="filter-pill" data-filter="mujer" type="button">Mujer</button>
+          <button class="filter-pill" data-filter="hombre" type="button">Hombre</button>
+        </div>
+
+        <!-- Grid productos -->
+        <div class="row gx-4 gy-4" id="products-grid" role="list" aria-label="Lista de productos">
+
+          <!-- Producto 1 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="1" data-name="Blazer Estructura Minimal"
+               data-price="2890" data-badge="bestseller" data-category="mujer" role="listitem">
+            <article class="product-card h-100" aria-label="Blazer Estructura Minimal">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&q=80"
+                     alt="Blazer Estructura Minimal color negro" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Más vendido">BESTSELLER</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Blazer al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Blazers</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Blazer Estructura Minimal</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.8 de 5 estrellas, 124 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-count">(124)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$2,890</span>
+                  <span class="price-original">$3,400</span>
+                  <span class="price-discount">-15%</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="2" data-name="Camisa Lino Premium"
+               data-price="1290" data-badge="new" data-category="hombre" role="listitem">
+            <article class="product-card h-100" aria-label="Camisa Lino Premium">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&q=80"
+                     alt="Camisa Lino Premium color blanco" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-new" aria-label="Nuevo">NUEVO</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Camisa al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Hombre / Camisas</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Camisa Lino Premium</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.6 de 5 estrellas, 87 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-count">(87)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$1,290</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="3" data-name="Bolso Cuero Artesanal"
+               data-price="3450" data-badge="sale" data-category="mujer" role="listitem">
+            <article class="product-card h-100" aria-label="Bolso Cuero Artesanal">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80"
+                     alt="Bolso Cuero Artesanal color café" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Oferta especial">-20%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Bolso al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Bolsos</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Bolso Cuero Artesanal</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.9 de 5 estrellas, 203 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="rating-count">(203)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$3,450</span>
+                  <span class="price-original">$4,300</span>
+                  <span class="price-discount">-20%</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 4 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="4" data-name="Sneakers Urban Minimal"
+               data-price="2100" data-badge="bestseller" data-category="hombre" role="listitem">
+            <article class="product-card h-100" aria-label="Sneakers Urban Minimal">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80"
+                     alt="Sneakers Urban Minimal color rojo" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Más vendido">BESTSELLER</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Sneakers al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Hombre / Calzado</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Sneakers Urban Minimal</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.7 de 5 estrellas, 156 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-count">(156)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$2,100</span>
+                  <span class="price-original">$2,500</span>
+                  <span class="price-discount">-16%</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 5 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="5" data-name="Vestido Fluido Verano"
+               data-price="1750" data-badge="new" data-category="mujer" role="listitem">
+            <article class="product-card h-100" aria-label="Vestido Fluido Verano">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500&q=80"
+                     alt="Vestido Fluido Verano color beige" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-new" aria-label="Nuevo">NUEVO</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Vestido al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Vestidos</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Vestido Fluido Verano</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.5 de 5 estrellas, 62 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-count">(62)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$1,750</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 6 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="6" data-name="Chaqueta Varsity Classic"
+               data-price="3200" data-badge="sale" data-category="hombre" role="listitem">
+            <article class="product-card h-100" aria-label="Chaqueta Varsity Classic">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80"
+                     alt="Chaqueta Varsity Classic color negro" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Oferta">-25%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Chaqueta al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Hombre / Chaquetas</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Chaqueta Varsity Classic</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.8 de 5 estrellas, 98 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-count">(98)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$3,200</span>
+                  <span class="price-original">$4,266</span>
+                  <span class="price-discount">-25%</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 7 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="7" data-name="Reloj Acero Inox"
+               data-price="4500" data-badge="bestseller" data-category="hombre" role="listitem">
+            <article class="product-card h-100" aria-label="Reloj Acero Inox">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80"
+                     alt="Reloj Acero Inox plata" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Más vendido">BESTSELLER</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Reloj al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Accesorios / Relojes</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Reloj Acero Inoxidable</a>
+                </h3>
+                <div class="product-card-rating" aria-label="5 de 5 estrellas, 341 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="rating-count">(341)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$4,500</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Producto 8 -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 animate-on-scroll"
+               data-product-item data-product-id="8" data-name="Falda Midi Plisada"
+               data-price="980" data-badge="sale" data-category="mujer" role="listitem">
+            <article class="product-card h-100" aria-label="Falda Midi Plisada">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500&q=80"
+                     alt="Falda Midi Plisada verde" loading="lazy">
+                <div class="product-card-badges">
+                  <span class="badge-promo" aria-label="Oferta">-30%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos">
+                    <i class="bi bi-heart" aria-hidden="true"></i>
+                  </button>
+                  <a href="product.html" class="btn-icon" aria-label="Vista rápida">
+                    <i class="bi bi-eye" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar Falda al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar al carrito
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Faldas</div>
+                <h3 class="product-card-name">
+                  <a href="product.html" class="text-decoration-none text-reset">Falda Midi Plisada</a>
+                </h3>
+                <div class="product-card-rating" aria-label="4.3 de 5 estrellas, 47 reseñas">
+                  <div class="stars" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <span class="rating-count">(47)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-current">$980</span>
+                  <span class="price-original">$1,400</span>
+                  <span class="price-discount">-30%</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /.row -->
+
+        <div class="text-center mt-5 d-md-none">
+          <a href="product.html" class="btn-primary-custom">Ver todos los productos</a>
         </div>
       </div>
-    </div>
-    <div class="border-t border-neutral-800 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-xs text-neutral-500 flex flex-col sm:flex-row justify-between gap-2">
-      <p>© 2026 E-Brumpa Store. Todos los derechos reservados.</p>
-      <div class="flex gap-4">
-        <a href="#" class="hover:text-neutral-300 transition-colors">Política de privacidad</a>
-        <a href="#" class="hover:text-neutral-300 transition-colors">Términos</a>
+    </section>
+
+    <!-- ── BANNER PROMO ───────────────────────────────────── -->
+    <section class="py-0" aria-label="Promoción especial">
+      <div style="position:relative;min-height:340px;background:#1a1a1a;display:flex;align-items:center;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1400&q=80"
+             alt="Oferta de temporada"
+             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.8) 0%,rgba(255,0,0,0.2) 100%);"></div>
+        <div class="container" style="position:relative;z-index:2;">
+          <div class="row align-items-center gy-4">
+            <div class="col-12 col-lg-7">
+              <div class="hero-eyebrow">Oferta limitada</div>
+              <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3.2rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:1rem;">
+                Hasta <span style="color:var(--color-primary);">40% OFF</span><br>en toda la colección
+              </h2>
+              <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;margin-bottom:2rem;">
+                Usa el cupón <strong style="color:#fff;background:rgba(255,255,255,0.12);padding:0.15rem 0.5rem;border-radius:4px;letter-spacing:0.08em;">SAVE10</strong> al checkout
+              </p>
+              <a href="cart.html" class="btn-primary-custom">Aprovechar oferta</a>
+            </div>
+            <div class="col-12 col-lg-5 d-none d-lg-flex justify-content-end gap-3">
+              <div style="text-align:center;color:rgba(255,255,255,0.7);">
+                <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:#fff;line-height:1;">08</div>
+                <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Horas</div>
+              </div>
+              <div style="color:rgba(255,255,255,0.3);font-size:2rem;padding-top:0.5rem;">:</div>
+              <div style="text-align:center;color:rgba(255,255,255,0.7);">
+                <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:#fff;line-height:1;">34</div>
+                <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Minutos</div>
+              </div>
+              <div style="color:rgba(255,255,255,0.3);font-size:2rem;padding-top:0.5rem;">:</div>
+              <div style="text-align:center;color:rgba(255,255,255,0.7);">
+                <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:#fff;line-height:1;" id="countdown-secs">59</div>
+                <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Segundos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TESTIMONIOS ───────────────────────────────────── -->
+    <section class="section-py" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-eyebrow" style="justify-content:center;">Clientes</div>
+          <h2 class="section-title" id="testimonials-title">Lo que dicen nuestros compradores</h2>
+        </div>
+        <div class="row gx-4 gy-4">
+          <div class="col-12 col-md-4 animate-on-scroll">
+            <div class="testimonial-card h-100">
+              <div class="stars mb-3" aria-label="5 de 5 estrellas">
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+              </div>
+              <p class="testimonial-text">La calidad del blazer superó todas mis expectativas. El acabado y los detalles son impresionantes. Lo usé en una presentación importante y recibí muchos cumplidos.</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sofía Ramírez" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <div class="testimonial-name">Sofía Ramírez</div>
+                  <div class="testimonial-role">Directora Creativa · CDMX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 animate-on-scroll">
+            <div class="testimonial-card h-100">
+              <div class="stars mb-3" aria-label="5 de 5 estrellas">
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+              </div>
+              <p class="testimonial-text">Compro en NEXO desde hace dos años. El servicio es excepcional, los productos siempre llegan en perfectas condiciones y antes del tiempo prometido.</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Carlos Mendoza" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <div class="testimonial-name">Carlos Mendoza</div>
+                  <div class="testimonial-role">Emprendedor · Monterrey</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 animate-on-scroll">
+            <div class="testimonial-card h-100">
+              <div class="stars mb-3" aria-label="4 de 5 estrellas">
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                <i class="bi bi-star" aria-hidden="true"></i>
+              </div>
+              <p class="testimonial-text">Los sneakers son increíblemente cómodos. Los llevo usando todo el día sin ningún problema. El diseño minimalista va con todo. Definitivamente compraré más.</p>
+              <div class="testimonial-author">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5ca?w=100&q=80" alt="Ana García" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <div class="testimonial-name">Ana García</div>
+                  <div class="testimonial-role">Diseñadora · Guadalajara</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── NEWSLETTER ────────────────────────────────────── -->
+    <section class="newsletter-section" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-12 col-lg-6">
+            <h2 class="newsletter-title" id="newsletter-title">Únete a la comunidad<br>NEXO y recibe <em style="font-style:italic;color:var(--color-primary);">beneficios exclusivos</em></h2>
+            <p class="newsletter-subtitle">Suscríbete y sé el primero en conocer nuevas colecciones, ofertas y eventos especiales.</p>
+            <form class="newsletter-form" id="newsletter-form" novalidate aria-label="Formulario de newsletter">
+              <input type="email" class="newsletter-input" placeholder="tu@correo.com" required
+                     aria-label="Correo electrónico" autocomplete="email">
+              <button type="submit" class="btn-primary-custom flex-shrink-0">Suscribirme</button>
+            </form>
+            <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:0.75rem;">
+              Sin spam. Puedes darte de baja cuando quieras.
+            </p>
+          </div>
+          <div class="col-12 col-lg-6 d-flex justify-content-lg-end gap-4 flex-wrap">
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:#fff;line-height:1;">50K+</div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;">Suscriptores</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:#fff;line-height:1;">98%</div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;">Satisfacción</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:#fff;line-height:1;">24H</div>
+              <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;">Respuesta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer-main" role="contentinfo">
+    <div class="container">
+      <div class="row gx-5 gy-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="footer-brand">NEX<span>O</span></div>
+          <p class="footer-tagline">Moda con propósito. Cada pieza pensada para durar y destacar.</p>
+          <div class="footer-social" aria-label="Redes sociales">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="Pinterest"><i class="bi bi-pinterest" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="footer-heading">Tienda</div>
+          <a href="product.html" class="footer-link">Nuevos productos</a>
+          <a href="product.html" class="footer-link">Más vendidos</a>
+          <a href="product.html" class="footer-link">Ofertas</a>
+          <a href="product.html" class="footer-link">Colecciones</a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="footer-heading">Ayuda</div>
+          <a href="#" class="footer-link">Preguntas frecuentes</a>
+          <a href="#" class="footer-link">Guía de tallas</a>
+          <a href="#" class="footer-link">Devoluciones</a>
+          <a href="#" class="footer-link">Rastrear pedido</a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+          <div class="footer-heading">Empresa</div>
+          <a href="about.html" class="footer-link">Nosotros</a>
+          <a href="blog.html" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Sostenibilidad</a>
+          <a href="#" class="footer-link">Contacto</a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-3">
+          <div class="footer-heading">Contacto</div>
+          <a href="mailto:hola@nexostore.mx" class="footer-link">
+            <i class="bi bi-envelope me-1" aria-hidden="true"></i> hola@nexostore.mx
+          </a>
+          <a href="tel:+525512345678" class="footer-link">
+            <i class="bi bi-telephone me-1" aria-hidden="true"></i> +52 55 1234 5678
+          </a>
+          <p class="footer-link mb-0">
+            <i class="bi bi-clock me-1" aria-hidden="true"></i> Lun–Vie: 9am – 7pm
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 NEXO Store. Todos los derechos reservados.</p>
+        <div class="payment-icons" aria-label="Métodos de pago aceptados">
+          <span class="payment-icon">VISA</span>
+          <span class="payment-icon">MC</span>
+          <span class="payment-icon">AMEX</span>
+          <span class="payment-icon">OXXO</span>
+          <span class="payment-icon">PayPal</span>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="#" class="footer-link mb-0" style="font-size:0.78rem;">Privacidad</a>
+          <a href="#" class="footer-link mb-0" style="font-size:0.78rem;">Términos</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════
-       TOAST NOTIFICATIONS
-  ═══════════════════════════════════════════ -->
-  <div id="toast-container" class="fixed bottom-5 right-5 z-[9999] flex flex-col gap-2" aria-live="polite" aria-atomic="true"></div>
+  <!-- Scroll to top -->
+  <button class="scroll-to-top" aria-label="Ir al inicio de la página">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
 
-  <!-- Main JS -->
+  <!-- Bootstrap Toast (global) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999;" aria-live="polite" aria-atomic="true">
+    <div id="main-toast" class="toast align-items-center border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2">
+          <i id="toast-icon" class="bi bi-check-circle-fill text-success me-1" aria-hidden="true"></i>
+          <div>
+            <strong id="toast-title" class="d-block"></strong>
+            <span id="toast-message"></span>
+          </div>
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar notificación"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
   <script src="js/main.js"></script>
+  <!-- Countdown timer (inline config mínima) -->
+  <script>
+    (function() {
+      const el = document.getElementById('countdown-secs');
+      if (!el) return;
+      let s = 59;
+      setInterval(() => { s = s <= 0 ? 59 : s - 1; el.textContent = String(s).padStart(2, '0'); }, 1000);
+    })();
+  </script>
 </body>
 </html>

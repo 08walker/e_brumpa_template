@@ -1,489 +1,655 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sneakers E-Brumpa Air — Comodidad y estilo en cada paso. Envío gratis." />
-  <meta property="og:title" content="Sneakers E-Brumpa Air — E-Brumpa Store" />
-  <meta property="og:type" content="product" />
-  <title>Sneakers E-Brumpa Air — E-Brumpa Store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blazer Estructura Minimal — Corte impecable en tela premium. Disponible en varios colores y tallas. Envío gratis.">
+  <meta property="og:title" content="Blazer Estructura Minimal — NEXO Store">
+  <meta property="og:description" content="Corte impecable en tela premium. Disponible en varios colores y tallas.">
+  <title>Blazer Estructura Minimal — NEXO Store</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { DEFAULT: '#FF0000', dark: '#CC0000', light: '#e0f7f7' },
-            neutral: { 50: '#f8fafc', 100: '#f1f5f9', 800: '#1f2937', 900: '#111827' },
-            cream: '#faf8f5',
-          },
-          fontFamily: {
-            display: ['Fraunces', 'Georgia', 'serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-body bg-cream text-neutral-800 antialiased">
+<body data-page="product">
 
-  <!-- ═══════════════════════════════════════════
-       HEADER (igual que index.html)
-  ═══════════════════════════════════════════ -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100 shadow-sm" x-data="{ mobileOpen: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 group" aria-label="E-Brumpa Store - Inicio">
-          <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <span class="font-display text-xl font-600 tracking-tight text-neutral-900">E-Brumpa</span>
-        </a>
-        <form class="hidden md:flex flex-1 max-w-md mx-8" role="search">
-          <div class="relative w-full">
-            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg></span>
-            <input type="search" placeholder="Buscar productos…" aria-label="Buscar productos" class="w-full pl-10 pr-4 py-2 text-sm rounded-full border border-neutral-200 bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all" />
-          </div>
-        </form>
-        <div class="flex items-center gap-1 sm:gap-2">
-          <a href="#" class="p-2 rounded-full hover:bg-neutral-100 transition-colors hidden sm:flex" aria-label="Mi cuenta"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"/></svg></a>
-          <a href="cart.html" class="relative p-2 rounded-full hover:bg-neutral-100 transition-colors" aria-label="Carrito">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
-            <span id="cart-badge" class="cart-badge absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold leading-none hidden" aria-live="polite">0</span>
-          </a>
-          <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-full hover:bg-neutral-100 ml-1" :aria-expanded="mobileOpen" aria-label="Abrir menú">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
-      </div>
-      <nav class="hidden md:flex items-center gap-6 pb-3 text-sm font-medium" aria-label="Navegación principal">
-        <a href="index.html" class="text-neutral-600 hover:text-primary transition-colors">Inicio</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Ropa</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Electrónica</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Hogar</a>
-        <a href="#" class="text-neutral-600 hover:text-primary transition-colors">Accesorios</a>
-        <a href="#" class="ml-2 px-4 py-1.5 bg-primary text-white text-xs font-semibold rounded-full hover:bg-primary-dark transition-colors">🔥 Ofertas</a>
-      </nav>
-    </div>
-    <!-- Mobile menu offcanvas (simplificado) -->
-    <div x-show="mobileOpen" x-transition class="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-50 flex flex-col md:hidden" role="dialog" aria-modal="true">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-neutral-100">
-        <span class="font-display text-lg font-600">E-Brumpa</span>
-        <button @click="mobileOpen = false" class="p-2 rounded-full hover:bg-neutral-100" aria-label="Cerrar menú"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
-      </div>
-      <nav class="flex-1 px-5 py-4 space-y-1">
-        <a href="index.html" class="block px-3 py-2.5 rounded-lg text-sm text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Inicio</a>
-        <a href="#" class="block px-3 py-2.5 rounded-lg text-sm text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Ropa</a>
-        <a href="#" class="block px-3 py-2.5 rounded-lg text-sm text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors">Electrónica</a>
-      </nav>
-    </div>
-    <div x-show="mobileOpen" @click="mobileOpen = false" class="fixed inset-0 bg-black/40 z-40 md:hidden" aria-hidden="true"></div>
-  </header>
-
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-
-    <!-- ═══════════════════════════════════════════
-         BREADCRUMBS
-    ═══════════════════════════════════════════ -->
-    <nav class="flex items-center gap-2 text-xs text-neutral-400 mb-8" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-primary transition-colors">Inicio</a>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      <a href="#" class="hover:text-primary transition-colors">Ropa</a>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      <span class="text-neutral-600 font-medium" aria-current="page">Sneakers E-Brumpa Air</span>
-    </nav>
-
-    <!-- ═══════════════════════════════════════════
-         DETALLE DEL PRODUCTO — DOS COLUMNAS
-    ═══════════════════════════════════════════ -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16" x-data="productDetail()">
-
-      <!-- ═══ COLUMNA IZQUIERDA: GALERÍA ═══ -->
-      <div>
-        <!-- Imagen principal con botón de modal/lightbox -->
-        <div class="relative bg-neutral-100 rounded-2xl overflow-hidden aspect-square mb-4 cursor-zoom-in group" @click="openModal(activeImage)" role="button" aria-label="Ver imagen en pantalla completa" tabindex="0" @keydown.enter="openModal(activeImage)">
-          <img :src="activeImage" :alt="activeAlt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" id="main-product-image" />
-          <div class="absolute bottom-3 right-3 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0zM10 7v6m3-3H7"/></svg>
-          </div>
-        </div>
-        <!-- Miniaturas -->
-        <div class="flex gap-3 overflow-x-auto pb-1">
-          <template x-for="(img, idx) in images" :key="idx">
-            <button @click="setImage(img)" :class="activeImage === img.src ? 'ring-2 ring-primary ring-offset-2' : 'ring-1 ring-neutral-200 hover:ring-primary/50'"
-              class="flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-neutral-100 transition-all" :aria-label="'Ver imagen ' + (idx+1)" :aria-pressed="activeImage === img.src">
-              <img :src="img.src" :alt="img.alt" class="w-full h-full object-cover" loading="lazy" />
-            </button>
-          </template>
-        </div>
-      </div>
-
-      <!-- ═══ COLUMNA DERECHA: INFORMACIÓN ═══ -->
-      <div class="flex flex-col">
-        <!-- Badges -->
-        <div class="flex gap-2 mb-3">
-          <span class="badge-new">Nuevo</span>
-          <span class="inline-flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 px-2.5 py-1 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            En stock
-          </span>
-        </div>
-
-        <h1 class="font-display text-3xl sm:text-4xl font-600 text-neutral-900 mb-3 leading-tight">Sneakers E-Brumpa Air</h1>
-
-        <!-- Rating -->
-        <div class="flex items-center gap-2 mb-4">
-          <div class="flex text-yellow-400 text-base" aria-label="Calificación 4.8 de 5 estrellas">★★★★★</div>
-          <span class="text-sm font-semibold text-neutral-700">4.8</span>
-          <span class="text-sm text-neutral-400">(124 reseñas)</span>
-        </div>
-
-        <!-- Precio -->
-        <div class="flex items-baseline gap-3 mb-6">
-          <span class="text-3xl font-bold text-primary">$1,299</span>
-          <span class="text-lg text-neutral-400 line-through">$1,599</span>
-          <span class="badge-sale">-19%</span>
-        </div>
-
-        <p class="text-neutral-500 text-sm leading-relaxed mb-6">Diseñados para quienes no se conforman con menos. Los E-Brumpa Air combinan materiales de alta calidad con tecnología de amortiguación avanzada para un confort excepcional todo el día.</p>
-
-        <!-- Selector de color -->
-        <div class="mb-5">
-          <p class="text-sm font-semibold text-neutral-700 mb-2">Color: <span class="font-normal text-neutral-500" x-text="selectedColor">Blanco</span></p>
-          <div class="flex gap-2" role="radiogroup" aria-label="Seleccionar color">
-            <template x-for="color in colors" :key="color.value">
-              <button @click="selectedColor = color.name" :aria-checked="selectedColor === color.name" :aria-label="color.name" role="radio"
-                :class="selectedColor === color.name ? 'ring-2 ring-primary ring-offset-2' : 'ring-1 ring-neutral-300 hover:ring-primary/50'"
-                :style="'background-color:' + color.hex"
-                class="w-8 h-8 rounded-full transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary">
-              </button>
-            </template>
-          </div>
-        </div>
-
-        <!-- Selector de talla -->
-        <div class="mb-6">
-          <div class="flex items-center justify-between mb-2">
-            <p class="text-sm font-semibold text-neutral-700">Talla: <span class="font-normal text-neutral-500" x-text="selectedSize || 'Seleccionar'">Seleccionar</span></p>
-            <a href="#" class="text-xs text-primary underline underline-offset-2 hover:text-primary-dark">Guía de tallas</a>
-          </div>
-          <div class="flex flex-wrap gap-2" role="radiogroup" aria-label="Seleccionar talla">
-            <template x-for="size in sizes" :key="size">
-              <button @click="selectedSize = size" :aria-checked="selectedSize === size" role="radio"
-                :class="selectedSize === size ? 'bg-primary text-white border-primary' : 'bg-white text-neutral-700 border-neutral-200 hover:border-primary hover:text-primary'"
-                class="w-12 h-12 rounded-xl border-2 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
-                x-text="size">
-              </button>
-            </template>
-          </div>
-        </div>
-
-        <!-- Selector de cantidad -->
-        <div class="flex items-center gap-4 mb-6">
-          <p class="text-sm font-semibold text-neutral-700">Cantidad:</p>
-          <div class="flex items-center border-2 border-neutral-200 rounded-xl overflow-hidden">
-            <button @click="qty > 1 && qty--" class="w-10 h-10 flex items-center justify-center hover:bg-neutral-100 transition-colors text-neutral-600 font-bold" aria-label="Reducir cantidad">−</button>
-            <span class="w-10 text-center text-sm font-semibold" x-text="qty" aria-live="polite"></span>
-            <button @click="qty < 10 && qty++" class="w-10 h-10 flex items-center justify-center hover:bg-neutral-100 transition-colors text-neutral-600 font-bold" aria-label="Aumentar cantidad">+</button>
-          </div>
-        </div>
-
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-3 mb-6">
-          <button @click="handleAddToCart()" class="btn-primary flex-1 flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
-            Añadir al carrito
-          </button>
-          <a href="cart.html" class="flex-1 inline-flex items-center justify-center px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-semibold hover:bg-neutral-700 transition-colors">
-            Comprar ahora
-          </a>
-        </div>
-
-        <!-- Wishlist + info de envío -->
-        <div class="flex flex-col gap-3 text-sm">
-          <button class="flex items-center gap-2 text-neutral-500 hover:text-primary transition-colors w-fit">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 0 1 6.364 0L12 7.636l1.318-1.318a4.5 4.5 0 1 1 6.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 0 1 0-6.364z"/></svg>
-            Guardar en favoritos
-          </button>
-          <div class="flex items-center gap-2 text-neutral-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></svg>
-            <span>Envío gratis en pedidos +$499 · Llega en 3-5 días hábiles</span>
-          </div>
-          <div class="flex items-center gap-2 text-neutral-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"/></svg>
-            <span>Devolución gratuita en 30 días</span>
-          </div>
-        </div>
-      </div>
-    </div><!-- /product detail -->
-
-    <!-- ═══════════════════════════════════════════
-         TABS: DESCRIPCIÓN / ESPECIFICACIONES / RESEÑAS
-    ═══════════════════════════════════════════ -->
-    <div class="mb-16 bg-white rounded-2xl shadow-sm overflow-hidden" x-data="{ activeTab: 'desc' }">
-      <!-- Tab headers -->
-      <div class="flex border-b border-neutral-100 overflow-x-auto" role="tablist" aria-label="Información del producto">
-        <button @click="activeTab = 'desc'" :class="activeTab === 'desc' ? 'border-primary text-primary' : 'border-transparent text-neutral-500 hover:text-neutral-700'" class="flex-shrink-0 px-6 py-4 text-sm font-semibold border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" role="tab" :aria-selected="activeTab === 'desc'" id="tab-desc" aria-controls="panel-desc">Descripción</button>
-        <button @click="activeTab = 'specs'" :class="activeTab === 'specs' ? 'border-primary text-primary' : 'border-transparent text-neutral-500 hover:text-neutral-700'" class="flex-shrink-0 px-6 py-4 text-sm font-semibold border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" role="tab" :aria-selected="activeTab === 'specs'" id="tab-specs" aria-controls="panel-specs">Especificaciones</button>
-        <button @click="activeTab = 'reviews'" :class="activeTab === 'reviews' ? 'border-primary text-primary' : 'border-transparent text-neutral-500 hover:text-neutral-700'" class="flex-shrink-0 px-6 py-4 text-sm font-semibold border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" role="tab" :aria-selected="activeTab === 'reviews'" id="tab-reviews" aria-controls="panel-reviews">Reseñas (124)</button>
-        <button @click="activeTab = 'qa'" :class="activeTab === 'qa' ? 'border-primary text-primary' : 'border-transparent text-neutral-500 hover:text-neutral-700'" class="flex-shrink-0 px-6 py-4 text-sm font-semibold border-b-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-inset" role="tab" :aria-selected="activeTab === 'qa'" id="tab-qa" aria-controls="panel-qa">Preguntas</button>
-      </div>
-
-      <!-- Tab panels -->
-      <div class="p-6 sm:p-8">
-        <!-- Descripción -->
-        <div x-show="activeTab === 'desc'" role="tabpanel" id="panel-desc" aria-labelledby="tab-desc">
-          <h3 class="font-display text-xl font-600 text-neutral-900 mb-4">Sobre el producto</h3>
-          <div class="text-neutral-600 text-sm leading-relaxed space-y-3">
-            <p>Los Sneakers E-Brumpa Air son el resultado de años de investigación en calzado de alto rendimiento. Diseñados para la persona moderna que exige tanto estilo como funcionalidad, estos tenis son perfectos para cualquier ocasión.</p>
-            <p>La suela de goma de alta densidad ofrece tracción excepcional en cualquier superficie, mientras que la plantilla de memoria proporciona un ajuste personalizado a la forma de tu pie.</p>
-            <ul class="list-none space-y-2 mt-4">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true"></span>Material exterior: malla de polietileno reciclado</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true"></span>Tecnología Air Cushion en la suela media</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true"></span>Plantilla removible con espuma de memoria</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true"></span>Disponible en tallas del 23 al 30 MX</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true"></span>Fabricado con materiales sostenibles</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Especificaciones -->
-        <div x-show="activeTab === 'specs'" role="tabpanel" id="panel-specs" aria-labelledby="tab-specs">
-          <h3 class="font-display text-xl font-600 text-neutral-900 mb-4">Especificaciones técnicas</h3>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm" aria-label="Tabla de especificaciones">
-              <tbody class="divide-y divide-neutral-100">
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium w-40">Material</td><td class="py-3 text-neutral-700">Malla de polietileno reciclado + TPU</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Suela</td><td class="py-3 text-neutral-700">Goma vulcanizada + Air Cushion</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Tallas</td><td class="py-3 text-neutral-700">23 — 30 MX / 5 — 12 US</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Peso</td><td class="py-3 text-neutral-700">285g (talla 27)</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Cierre</td><td class="py-3 text-neutral-700">Cordones planos antideslizantes</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Cuidado</td><td class="py-3 text-neutral-700">Limpieza con paño húmedo. No lavar en máquina.</td></tr>
-                <tr><td class="py-3 pr-4 text-neutral-500 font-medium">Garantía</td><td class="py-3 text-neutral-700">12 meses contra defectos de fabricación</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Reseñas -->
-        <div x-show="activeTab === 'reviews'" role="tabpanel" id="panel-reviews" aria-labelledby="tab-reviews">
-          <div class="flex flex-col sm:flex-row items-start gap-8 mb-8">
-            <div class="text-center">
-              <p class="font-display text-5xl font-600 text-neutral-900">4.8</p>
-              <div class="text-yellow-400 text-lg my-1" aria-label="4.8 estrellas">★★★★★</div>
-              <p class="text-xs text-neutral-400">124 reseñas</p>
-            </div>
-            <div class="flex-1 space-y-2 w-full">
-              <div class="flex items-center gap-3"><span class="text-xs text-neutral-500 w-4">5</span><div class="flex-1 bg-neutral-100 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full" style="width:70%" aria-label="70% de reseñas de 5 estrellas"></div></div><span class="text-xs text-neutral-400 w-8">70%</span></div>
-              <div class="flex items-center gap-3"><span class="text-xs text-neutral-500 w-4">4</span><div class="flex-1 bg-neutral-100 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full" style="width:20%"></div></div><span class="text-xs text-neutral-400 w-8">20%</span></div>
-              <div class="flex items-center gap-3"><span class="text-xs text-neutral-500 w-4">3</span><div class="flex-1 bg-neutral-100 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full" style="width:7%"></div></div><span class="text-xs text-neutral-400 w-8">7%</span></div>
-              <div class="flex items-center gap-3"><span class="text-xs text-neutral-500 w-4">2</span><div class="flex-1 bg-neutral-100 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full" style="width:2%"></div></div><span class="text-xs text-neutral-400 w-8">2%</span></div>
-              <div class="flex items-center gap-3"><span class="text-xs text-neutral-500 w-4">1</span><div class="flex-1 bg-neutral-100 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full" style="width:1%"></div></div><span class="text-xs text-neutral-400 w-8">1%</span></div>
-            </div>
-          </div>
-          <div class="space-y-5">
-            <article class="border-b border-neutral-100 pb-5">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm" aria-hidden="true">J</div>
-                <div>
-                  <p class="text-sm font-semibold text-neutral-900">Javier M.</p>
-                  <div class="text-yellow-400 text-xs" aria-label="5 estrellas">★★★★★</div>
-                </div>
-                <span class="text-xs text-neutral-400 ml-auto">hace 3 días</span>
-              </div>
-              <p class="text-sm text-neutral-600">Increíbles. Me llegaron en perfectas condiciones y la comodidad es superior a lo esperado. El diseño minimalista combina con todo.</p>
-            </article>
-            <article class="border-b border-neutral-100 pb-5">
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm" aria-hidden="true">S</div>
-                <div>
-                  <p class="text-sm font-semibold text-neutral-900">Sandra L.</p>
-                  <div class="text-yellow-400 text-xs" aria-label="4 estrellas">★★★★☆</div>
-                </div>
-                <span class="text-xs text-neutral-400 ml-auto">hace 1 semana</span>
-              </div>
-              <p class="text-sm text-neutral-600">Muy cómodos para uso diario. Me quedan un poco grandes (recomendaría pedir una talla menos). El color blanco es precioso.</p>
-            </article>
-          </div>
-        </div>
-
-        <!-- Preguntas -->
-        <div x-show="activeTab === 'qa'" role="tabpanel" id="panel-qa" aria-labelledby="tab-qa">
-          <h3 class="font-display text-xl font-600 text-neutral-900 mb-6">Preguntas frecuentes</h3>
-          <div class="space-y-4">
-            <div class="border border-neutral-100 rounded-xl p-4">
-              <p class="text-sm font-semibold text-neutral-800 mb-2">¿Son verdaderas al talle?</p>
-              <p class="text-sm text-neutral-500">En general sí, aunque si tienes el pie ancho te recomendamos pedir media talla más.</p>
-            </div>
-            <div class="border border-neutral-100 rounded-xl p-4">
-              <p class="text-sm font-semibold text-neutral-800 mb-2">¿Se pueden lavar en lavadora?</p>
-              <p class="text-sm text-neutral-500">No, recomendamos limpieza con paño húmedo y jabón neutro para preservar los materiales.</p>
-            </div>
-          </div>
-          <div class="mt-6 pt-6 border-t border-neutral-100">
-            <p class="text-sm text-neutral-500 mb-3">¿Tienes otra pregunta?</p>
-            <button class="btn-outline text-sm">Hacer una pregunta</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════
-         PRODUCTOS RELACIONADOS
-    ═══════════════════════════════════════════ -->
-    <section aria-label="Productos relacionados">
-      <h2 class="font-display text-2xl font-600 text-neutral-900 mb-6">También te puede gustar</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Relacionado 1 -->
-        <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-          <div class="relative overflow-hidden aspect-square bg-neutral-100">
-            <img src="assets/images/product-5.jpg" alt="Reloj Minimal Steel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/300x300/0ea5a4/ffffff?text=Reloj'" />
-            <div class="product-overlay absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="product.html" class="px-4 py-2 bg-white text-neutral-900 text-xs font-semibold rounded-full">Ver detalle</a>
-            </div>
-          </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-neutral-900 text-xs mb-1">Reloj Minimal Steel</h3>
-            <p class="text-primary font-bold text-sm">$2,199</p>
-          </div>
-        </article>
-        <!-- Relacionado 2 -->
-        <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-          <div class="relative overflow-hidden aspect-square bg-neutral-100">
-            <img src="assets/images/product-3.jpg" alt="Mochila Urban Canvas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/300x300/f1f5f9/1f2937?text=Mochila'" />
-            <div class="product-overlay absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="product.html" class="px-4 py-2 bg-white text-neutral-900 text-xs font-semibold rounded-full">Ver detalle</a>
-            </div>
-          </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-neutral-900 text-xs mb-1">Mochila Urban Canvas</h3>
-            <p class="text-primary font-bold text-sm">$749</p>
-          </div>
-        </article>
-        <!-- Relacionado 3 -->
-        <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-          <div class="relative overflow-hidden aspect-square bg-neutral-100">
-            <img src="assets/images/product-7.jpg" alt="Camiseta Lino Premium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/300x300/faf8f5/1f2937?text=Camiseta'" />
-            <div class="product-overlay absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="product.html" class="px-4 py-2 bg-white text-neutral-900 text-xs font-semibold rounded-full">Ver detalle</a>
-            </div>
-          </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-neutral-900 text-xs mb-1">Camiseta Lino Premium</h3>
-            <p class="text-primary font-bold text-sm">$599</p>
-          </div>
-        </article>
-        <!-- Relacionado 4 -->
-        <article class="product-card group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-          <div class="relative overflow-hidden aspect-square bg-neutral-100">
-            <img src="assets/images/product-2.jpg" alt="Auriculares Pro X" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/300x300/1f2937/ffffff?text=Auriculares'" />
-            <span class="badge-sale absolute top-2 left-2 text-xs">-25%</span>
-            <div class="product-overlay absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="product.html" class="px-4 py-2 bg-white text-neutral-900 text-xs font-semibold rounded-full">Ver detalle</a>
-            </div>
-          </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-neutral-900 text-xs mb-1">Auriculares Pro X</h3>
-            <p class="text-primary font-bold text-sm">$899</p>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <!-- ═══════════════════════════════════════════
-       MODAL LIGHTBOX (galería)
-  ═══════════════════════════════════════════ -->
-  <div id="image-modal" class="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
-    <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors" aria-label="Cerrar imagen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-    </button>
-    <img id="modal-image" src="" alt="Imagen del producto ampliada" class="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl" />
+  <!-- Topbar -->
+  <div class="topbar">
+    <span>🚚 Envío gratis en pedidos mayores a $1,500 MXN — </span>
+    <a href="#">Ver términos</a>
   </div>
 
-  <!-- FOOTER (simplificado para product page) -->
-  <footer class="bg-neutral-900 text-neutral-400 mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs">
-      <p>© 2025 E-Brumpa Store — <a href="index.html" class="hover:text-primary transition-colors">Volver al inicio</a></p>
+  <!-- Navbar -->
+  <nav class="navbar-custom" aria-label="Navegación principal">
+    <div class="container h-100">
+      <div class="d-flex align-items-center justify-content-between h-100 gap-3">
+        <a href="index.html" class="navbar-brand text-decoration-none flex-shrink-0">NEX<span>O</span></a>
+        <div class="d-none d-lg-flex align-items-center gap-1">
+          <a href="index.html" class="nav-link-custom">Inicio</a>
+          <a href="product.html" class="nav-link-custom active" aria-current="page">Productos</a>
+          <a href="blog.html" class="nav-link-custom">Blog</a>
+          <a href="about.html" class="nav-link-custom">Nosotros</a>
+          <a href="#" class="nav-link-custom" style="color:var(--color-primary);font-weight:700;">Ofertas 🔥</a>
+        </div>
+        <div class="search-wrapper d-none d-md-block">
+          <i class="bi bi-search search-icon" aria-hidden="true"></i>
+          <input type="search" class="search-input-custom" placeholder="Buscar productos..." aria-label="Buscar productos">
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="btn-icon d-none d-md-inline-flex" aria-label="Mi cuenta"><i class="bi bi-person" aria-hidden="true"></i></a>
+          <a href="#" class="btn-icon d-none d-md-inline-flex" aria-label="Favoritos"><i class="bi bi-heart" aria-hidden="true"></i></a>
+          <a href="cart.html" class="btn-icon cart-icon-wrapper" aria-label="Carrito de compras">
+            <i class="bi bi-bag" aria-hidden="true"></i>
+            <span class="cart-badge" aria-live="polite">0</span>
+          </a>
+          <button class="btn-icon d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Abrir menú">
+            <i class="bi bi-list" style="font-size:1.2rem;" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Offcanvas mobile -->
+  <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <span class="navbar-brand" id="mobileMenuLabel">NEX<span style="color:var(--color-primary);">O</span></span>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="search-wrapper mb-4">
+        <i class="bi bi-search search-icon" aria-hidden="true"></i>
+        <input type="search" class="search-input-custom" placeholder="Buscar..." aria-label="Buscar">
+      </div>
+      <nav>
+        <a href="index.html" class="mobile-nav-link text-decoration-none">Inicio <i class="bi bi-chevron-right"></i></a>
+        <a href="product.html" class="mobile-nav-link text-decoration-none" style="color:var(--color-primary);">Productos <i class="bi bi-chevron-right"></i></a>
+        <a href="blog.html" class="mobile-nav-link text-decoration-none">Blog <i class="bi bi-chevron-right"></i></a>
+        <a href="about.html" class="mobile-nav-link text-decoration-none">Nosotros <i class="bi bi-chevron-right"></i></a>
+        <a href="#" class="mobile-nav-link text-decoration-none" style="color:var(--color-primary);">Ofertas 🔥 <i class="bi bi-chevron-right"></i></a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="py-3 border-bottom bg-cream">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb-custom">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Mujer</a></li>
+            <li><a href="#">Blazers</a></li>
+            <li class="active" aria-current="page">Blazer Estructura Minimal</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ── PRODUCTO DETALLE ───────────────────────────────── -->
+    <section class="section-py" aria-labelledby="product-name">
+      <div class="container">
+        <div class="row gx-5 gy-5 align-items-start">
+
+          <!-- Columna galería -->
+          <div class="col-12 col-lg-6">
+            <!-- Imagen principal -->
+            <div class="product-gallery-main" id="gallery-main" aria-label="Galería de producto - clic para ampliar">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
+                   alt="Blazer Estructura Minimal vista frontal"
+                   id="product-main-image" loading="eager">
+              <div style="position:absolute;bottom:1rem;right:1rem;z-index:2;">
+                <button class="btn-icon" style="background:rgba(255,255,255,0.9);"
+                        data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        aria-label="Ver imagen ampliada">
+                  <i class="bi bi-arrows-fullscreen" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Thumbnails -->
+            <div class="product-thumbnails" role="group" aria-label="Imágenes adicionales del producto">
+              <div class="product-thumb active"
+                   data-full="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
+                   role="button" tabindex="0" aria-label="Ver imagen 1" aria-pressed="true">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&q=80" alt="Vista 1" loading="lazy">
+              </div>
+              <div class="product-thumb"
+                   data-full="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80"
+                   role="button" tabindex="0" aria-label="Ver imagen 2" aria-pressed="false">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=200&q=80" alt="Vista 2" loading="lazy">
+              </div>
+              <div class="product-thumb"
+                   data-full="https://images.unsplash.com/photo-1485462537746-965f33f3a6b7?w=800&q=80"
+                   role="button" tabindex="0" aria-label="Ver imagen 3" aria-pressed="false">
+                <img src="https://images.unsplash.com/photo-1485462537746-965f33f3a6b7?w=200&q=80" alt="Vista 3" loading="lazy">
+              </div>
+              <div class="product-thumb"
+                   data-full="https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=800&q=80"
+                   role="button" tabindex="0" aria-label="Ver imagen 4" aria-pressed="false">
+                <img src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=200&q=80" alt="Vista 4" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna info -->
+          <div class="col-12 col-lg-6">
+            <!-- Badges + rating -->
+            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+              <span class="badge-promo">BESTSELLER</span>
+              <span class="badge-stock badge-stock-available" aria-label="Estado: Disponible">
+                <i class="bi bi-circle-fill" style="font-size:0.55rem;" aria-hidden="true"></i> En stock
+              </span>
+            </div>
+
+            <h1 class="product-title-detail mb-2" id="product-name">Blazer Estructura Minimal</h1>
+
+            <!-- Rating -->
+            <div class="d-flex align-items-center gap-2 mb-3" aria-label="4.8 de 5 estrellas, 124 reseñas">
+              <div class="stars" aria-hidden="true" style="font-size:0.85rem;">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <span style="font-size:0.85rem;font-weight:600;">4.8</span>
+              <a href="#tab-reviews" class="text-muted" style="font-size:0.82rem;">(124 reseñas)</a>
+            </div>
+
+            <!-- Precio -->
+            <div class="product-price-detail mb-4" aria-label="Precio: $2,890 MXN, precio anterior $3,400 MXN, 15% de descuento">
+              <span class="price-main" id="product-price" data-price="2890">$2,890</span>
+              <span class="price-was">$3,400</span>
+              <span class="price-discount" style="font-size:0.85rem;padding:0.2rem 0.6rem;">-15%</span>
+            </div>
+
+            <p style="font-size:0.93rem;color:var(--color-neutral-600);line-height:1.75;margin-bottom:1.75rem;">
+              El Blazer Estructura Minimal está confeccionado en tela tensada italiana con un corte arquitectónico que realza la silueta. Sus hombreras reforzadas y su forro de seda lo hacen ideal tanto para el trabajo como para eventos especiales.
+            </p>
+
+            <hr class="divider mb-4">
+
+            <!-- Selector color -->
+            <div class="mb-4">
+              <div class="selector-label">
+                Color: <span id="selected-color" style="font-weight:400;text-transform:none;letter-spacing:0;">Negro</span>
+              </div>
+              <div class="color-options" role="group" aria-label="Seleccionar color">
+                <div class="color-swatch active" style="background:#000;" data-color="Negro" role="radio" aria-checked="true" tabindex="0" aria-label="Negro"></div>
+                <div class="color-swatch" style="background:#4B3A2A;" data-color="Café" role="radio" aria-checked="false" tabindex="0" aria-label="Café"></div>
+                <div class="color-swatch" style="background:#EAEAEA;border:1px solid #ccc;" data-color="Blanco Hueso" role="radio" aria-checked="false" tabindex="0" aria-label="Blanco Hueso"></div>
+                <div class="color-swatch" style="background:#7C6484;" data-color="Lavanda" role="radio" aria-checked="false" tabindex="0" aria-label="Lavanda"></div>
+                <div class="color-swatch" style="background:#CC0000;" data-color="Rojo" role="radio" aria-checked="false" tabindex="0" aria-label="Rojo"></div>
+              </div>
+            </div>
+
+            <!-- Selector talla -->
+            <div class="mb-4">
+              <div class="selector-label d-flex align-items-center justify-content-between">
+                <span>Talla: <span id="selected-size" style="font-weight:400;text-transform:none;letter-spacing:0;">Selecciona</span></span>
+                <a href="#" style="font-size:0.78rem;font-weight:500;color:var(--color-neutral-600);text-decoration:underline;text-underline-offset:2px;">Guía de tallas</a>
+              </div>
+              <div class="size-options" role="group" aria-label="Seleccionar talla">
+                <button class="size-btn" data-size="XS" aria-label="Talla XS">XS</button>
+                <button class="size-btn" data-size="S" aria-label="Talla S">S</button>
+                <button class="size-btn active" data-size="M" aria-label="Talla M">M</button>
+                <button class="size-btn" data-size="L" aria-label="Talla L">L</button>
+                <button class="size-btn" data-size="XL" aria-label="Talla XL">XL</button>
+                <button class="size-btn" data-size="XXL" disabled aria-label="Talla XXL — Agotado" aria-disabled="true">XXL</button>
+              </div>
+            </div>
+
+            <!-- Cantidad + agregar -->
+            <div class="d-flex flex-wrap gap-3 mb-4" id="product-qty-input">
+              <div class="qty-selector" role="group" aria-label="Selector de cantidad">
+                <button class="qty-btn" data-qty="minus" aria-label="Disminuir cantidad">−</button>
+                <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="Cantidad">
+                <button class="qty-btn" data-qty="plus" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <button class="btn-primary-custom flex-fill" id="add-to-cart-btn"
+                      data-product-id="1"
+                      aria-label="Agregar Blazer Estructura Minimal al carrito">
+                <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar al carrito
+              </button>
+            </div>
+
+            <button class="btn-secondary-custom w-100 mb-4" aria-label="Comprar ahora">
+              <i class="bi bi-lightning-fill" aria-hidden="true"></i> Comprar ahora
+            </button>
+
+            <!-- Trust icons -->
+            <div class="trust-icons">
+              <div class="trust-icon"><i class="bi bi-truck" aria-hidden="true"></i> Envío gratis</div>
+              <div class="trust-icon"><i class="bi bi-arrow-return-left" aria-hidden="true"></i> 30 días devolución</div>
+              <div class="trust-icon"><i class="bi bi-shield-check" aria-hidden="true"></i> Pago seguro</div>
+            </div>
+
+            <!-- SKU y compartir -->
+            <hr class="divider mt-4 mb-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <span style="font-size:0.78rem;color:var(--color-neutral-400);">SKU: <strong style="color:var(--color-neutral-600);">BLZ-MIN-001</strong></span>
+              <div class="d-flex align-items-center gap-2">
+                <span style="font-size:0.78rem;color:var(--color-neutral-400);">Compartir:</span>
+                <a href="#" class="btn-icon" style="width:32px;height:32px;" aria-label="Compartir en Facebook"><i class="bi bi-facebook" style="font-size:0.8rem;" aria-hidden="true"></i></a>
+                <a href="#" class="btn-icon" style="width:32px;height:32px;" aria-label="Compartir en Twitter"><i class="bi bi-twitter-x" style="font-size:0.8rem;" aria-hidden="true"></i></a>
+                <a href="#" class="btn-icon" style="width:32px;height:32px;" aria-label="Compartir en WhatsApp"><i class="bi bi-whatsapp" style="font-size:0.8rem;" aria-hidden="true"></i></a>
+                <a href="#" class="btn-icon" style="width:32px;height:32px;" aria-label="Copiar enlace"><i class="bi bi-link-45deg" style="font-size:0.8rem;" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.row -->
+      </div>
+    </section>
+
+    <!-- ── TABS ──────────────────────────────────────────── -->
+    <section class="py-0 border-top product-tabs" aria-labelledby="product-tabs-heading">
+      <div class="container">
+        <h2 class="visually-hidden" id="product-tabs-heading">Información del producto</h2>
+        <ul class="nav nav-tabs" id="productTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#tab-desc"
+                    type="button" role="tab" aria-controls="tab-desc" aria-selected="true">
+              Descripción
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#tab-specs"
+                    type="button" role="tab" aria-controls="tab-specs" aria-selected="false">
+              Especificaciones
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#tab-reviews"
+                    type="button" role="tab" aria-controls="tab-reviews" aria-selected="false">
+              Reseñas <span class="badge bg-light text-dark ms-1" style="font-size:0.7rem;">124</span>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="faq-tab" data-bs-toggle="tab" data-bs-target="#tab-faq"
+                    type="button" role="tab" aria-controls="tab-faq" aria-selected="false">
+              Preguntas
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="productTabContent">
+          <!-- Descripción -->
+          <div class="tab-pane fade show active" id="tab-desc" role="tabpanel" aria-labelledby="desc-tab" tabindex="0">
+            <div class="row gy-4">
+              <div class="col-12 col-md-7">
+                <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:1rem;">Un blazer para cada ocasión</h3>
+                <p style="color:var(--color-neutral-600);line-height:1.8;margin-bottom:1rem;">
+                  El Blazer Estructura Minimal ha sido diseñado para la mujer moderna que busca prendas versátiles sin sacrificar estilo. Su tela tensada italiana de 280 g/m² mantiene la forma perfecta durante todo el día, mientras que su forro de microfibra garantiza comodidad en todo momento.
+                </p>
+                <p style="color:var(--color-neutral-600);line-height:1.8;margin-bottom:1rem;">
+                  El corte arquitectónico de las hombreras reforzadas añade estructura al atuendo sin ser exagerado, logrando ese balance perfecto entre profesionalismo y elegancia contemporánea. Ideal para presentaciones, eventos de negocios o una salida sofisticada.
+                </p>
+                <ul style="color:var(--color-neutral-600);line-height:2;padding-left:1.25rem;">
+                  <li>Tela tensada italiana 100% Polyester premium</li>
+                  <li>Forro interior de microfibra antibacterial</li>
+                  <li>Botones nácar genuino</li>
+                  <li>Bolsillos interiores funcionales</li>
+                  <li>Costuras reforzadas en puntos de tensión</li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-5">
+                <div style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:1.75rem;">
+                  <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:1rem;">Cuidado de la prenda</h4>
+                  <div class="d-flex align-items-center gap-2 mb-2" style="font-size:0.85rem;color:var(--color-neutral-600);">
+                    <i class="bi bi-droplet-half" style="color:var(--color-primary);font-size:1rem;" aria-hidden="true"></i>
+                    Lavar a mano en agua fría
+                  </div>
+                  <div class="d-flex align-items-center gap-2 mb-2" style="font-size:0.85rem;color:var(--color-neutral-600);">
+                    <i class="bi bi-wind" style="color:var(--color-primary);font-size:1rem;" aria-hidden="true"></i>
+                    No secar en secadora
+                  </div>
+                  <div class="d-flex align-items-center gap-2 mb-2" style="font-size:0.85rem;color:var(--color-neutral-600);">
+                    <i class="bi bi-thermometer-low" style="color:var(--color-primary);font-size:1rem;" aria-hidden="true"></i>
+                    Planchar a temperatura media
+                  </div>
+                  <div class="d-flex align-items-center gap-2" style="font-size:0.85rem;color:var(--color-neutral-600);">
+                    <i class="bi bi-x-circle" style="color:var(--color-primary);font-size:1rem;" aria-hidden="true"></i>
+                    No usar blanqueadores
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Especificaciones -->
+          <div class="tab-pane fade" id="tab-specs" role="tabpanel" aria-labelledby="specs-tab" tabindex="0">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <table class="table table-borderless" style="font-size:0.9rem;">
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--color-neutral-100);">
+                      <td style="color:var(--color-neutral-400);font-weight:600;width:40%;padding:0.85rem 0;">Material</td>
+                      <td style="padding:0.85rem 0;">100% Polyester Premium</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--color-neutral-100);">
+                      <td style="color:var(--color-neutral-400);font-weight:600;padding:0.85rem 0;">Forro</td>
+                      <td style="padding:0.85rem 0;">Microfibra Antibacterial</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--color-neutral-100);">
+                      <td style="color:var(--color-neutral-400);font-weight:600;padding:0.85rem 0;">Origen</td>
+                      <td style="padding:0.85rem 0;">Italia / México</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--color-neutral-100);">
+                      <td style="color:var(--color-neutral-400);font-weight:600;padding:0.85rem 0;">Temporada</td>
+                      <td style="padding:0.85rem 0;">Primavera - Verano 2024</td>
+                    </tr>
+                    <tr>
+                      <td style="color:var(--color-neutral-400);font-weight:600;padding:0.85rem 0;">SKU</td>
+                      <td style="padding:0.85rem 0;">BLZ-MIN-001</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-12 col-md-6">
+                <h4 style="font-size:0.9rem;font-weight:700;margin-bottom:1rem;color:var(--color-neutral-600);text-transform:uppercase;letter-spacing:0.08em;">Tabla de tallas</h4>
+                <table class="table table-sm" style="font-size:0.82rem;">
+                  <thead style="background:var(--color-neutral-100);">
+                    <tr>
+                      <th scope="col">Talla</th>
+                      <th scope="col">Busto</th>
+                      <th scope="col">Cintura</th>
+                      <th scope="col">Largo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>XS</td><td>80 cm</td><td>62 cm</td><td>66 cm</td></tr>
+                    <tr><td>S</td><td>84 cm</td><td>66 cm</td><td>67 cm</td></tr>
+                    <tr><td>M</td><td>88 cm</td><td>70 cm</td><td>68 cm</td></tr>
+                    <tr><td>L</td><td>94 cm</td><td>76 cm</td><td>69 cm</td></tr>
+                    <tr><td>XL</td><td>100 cm</td><td>82 cm</td><td>70 cm</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Reseñas -->
+          <div class="tab-pane fade" id="tab-reviews" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+            <div class="row gy-4">
+              <div class="col-12 col-md-3">
+                <div style="text-align:center;padding:1.5rem;background:var(--color-neutral-100);border-radius:var(--radius-lg);">
+                  <div style="font-family:var(--font-display);font-size:4rem;font-weight:700;color:var(--color-neutral-900);line-height:1;" aria-label="Calificación promedio: 4.8 de 5">4.8</div>
+                  <div class="stars my-2" aria-hidden="true">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <div style="font-size:0.8rem;color:var(--color-neutral-400);">124 reseñas</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-9">
+                <!-- Reseña 1 -->
+                <div style="padding:1.25rem 0;border-bottom:1px solid var(--color-neutral-100);">
+                  <div class="d-flex align-items-start gap-3">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="Sofía R."
+                         style="width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy">
+                    <div style="flex:1;">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-1 mb-1">
+                        <strong style="font-size:0.9rem;">Sofía R.</strong>
+                        <span style="font-size:0.75rem;color:var(--color-neutral-400);">15 Nov 2024</span>
+                      </div>
+                      <div class="stars mb-2" style="font-size:0.72rem;" aria-label="5 de 5 estrellas">
+                        <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      </div>
+                      <p style="font-size:0.88rem;color:var(--color-neutral-600);line-height:1.65;margin:0;">
+                        Increíble calidad. El corte es perfecto, la tela cae exactamente como se ve en las fotos. Lo recibí en 2 días. Definitivamente lo recomiendo, ya lo usé en una presentación importante y recibí muchos cumplidos.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Reseña 2 -->
+                <div style="padding:1.25rem 0;">
+                  <div class="d-flex align-items-start gap-3">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b5ca?w=80&q=80" alt="María L."
+                         style="width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;" loading="lazy">
+                    <div style="flex:1;">
+                      <div class="d-flex align-items-center justify-content-between flex-wrap gap-1 mb-1">
+                        <strong style="font-size:0.9rem;">María L.</strong>
+                        <span style="font-size:0.75rem;color:var(--color-neutral-400);">8 Nov 2024</span>
+                      </div>
+                      <div class="stars mb-2" style="font-size:0.72rem;" aria-label="4 de 5 estrellas">
+                        <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+                        <i class="bi bi-star" aria-hidden="true"></i>
+                      </div>
+                      <p style="font-size:0.88rem;color:var(--color-neutral-600);line-height:1.65;margin:0;">
+                        Muy buena calidad. Le doy 4 estrellas porque la talla me quedó un poco grande, sugiero pedir una talla menos. Pero el diseño y los acabados son excepcionales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FAQ -->
+          <div class="tab-pane fade" id="tab-faq" role="tabpanel" aria-labelledby="faq-tab" tabindex="0">
+            <div class="accordion" id="faqAccordion" style="max-width:640px;">
+              <div class="accordion-item" style="border:1px solid var(--color-neutral-200);border-radius:var(--radius-md);margin-bottom:0.75rem;overflow:hidden;">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                          aria-expanded="true" aria-controls="faq1"
+                          style="font-family:var(--font-body);font-weight:600;font-size:0.9rem;background:transparent;">
+                    ¿Cómo debo elegir mi talla?
+                  </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body" style="font-size:0.88rem;color:var(--color-neutral-600);line-height:1.75;">
+                    Recomendamos elegir tu talla habitual. Si estás entre dos tallas, te sugerimos pedir la más grande para mayor comodidad. Consulta nuestra guía de tallas en la pestaña de Especificaciones.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="border:1px solid var(--color-neutral-200);border-radius:var(--radius-md);margin-bottom:0.75rem;overflow:hidden;">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                          aria-expanded="false" aria-controls="faq2"
+                          style="font-family:var(--font-body);font-weight:600;font-size:0.9rem;background:transparent;">
+                    ¿Cuánto tarda el envío?
+                  </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body" style="font-size:0.88rem;color:var(--color-neutral-600);line-height:1.75;">
+                    Los envíos a CDMX, Monterrey y Guadalajara tardan 1-2 días hábiles. Para el resto del país, de 3-5 días hábiles. Envío express disponible por $150 MXN adicionales.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="border:1px solid var(--color-neutral-200);border-radius:var(--radius-md);overflow:hidden;">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                          aria-expanded="false" aria-controls="faq3"
+                          style="font-family:var(--font-body);font-weight:600;font-size:0.9rem;background:transparent;">
+                    ¿Puedo devolver el producto?
+                  </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body" style="font-size:0.88rem;color:var(--color-neutral-600);line-height:1.75;">
+                    Sí, aceptamos devoluciones dentro de los 30 días posteriores a la compra. El producto debe estar en perfectas condiciones, sin usar y con las etiquetas originales. El costo de envío de devolución es gratuito.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCTOS RELACIONADOS ─────────────────────────── -->
+    <section class="section-py bg-cream" aria-labelledby="related-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">También te puede gustar</div>
+          <h2 class="section-title" id="related-title">Productos relacionados</h2>
+        </div>
+        <div class="row gx-4 gy-4">
+          <div class="col-6 col-lg-3 animate-on-scroll"
+               data-product-item data-product-id="2" data-name="Camisa Lino Premium" data-price="1290">
+            <article class="product-card">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80" alt="Camisa Lino Premium" loading="lazy">
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Hombre / Camisas</div>
+                <h3 class="product-card-name"><a href="product.html" class="text-decoration-none text-reset">Camisa Lino Premium</a></h3>
+                <div class="product-card-price"><span class="price-current">$1,290</span></div>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3 animate-on-scroll"
+               data-product-item data-product-id="7" data-name="Reloj Acero Inox" data-price="4500">
+            <article class="product-card">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Reloj Acero Inox" loading="lazy">
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Accesorios / Relojes</div>
+                <h3 class="product-card-name"><a href="product.html" class="text-decoration-none text-reset">Reloj Acero Inoxidable</a></h3>
+                <div class="product-card-price"><span class="price-current">$4,500</span></div>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3 animate-on-scroll"
+               data-product-item data-product-id="5" data-name="Vestido Fluido Verano" data-price="1750">
+            <article class="product-card">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&q=80" alt="Vestido Fluido Verano" loading="lazy">
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Vestidos</div>
+                <h3 class="product-card-name"><a href="product.html" class="text-decoration-none text-reset">Vestido Fluido Verano</a></h3>
+                <div class="product-card-price"><span class="price-current">$1,750</span></div>
+              </div>
+            </article>
+          </div>
+          <div class="col-6 col-lg-3 animate-on-scroll"
+               data-product-item data-product-id="3" data-name="Bolso Cuero Artesanal" data-price="3450">
+            <article class="product-card">
+              <div class="product-card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80" alt="Bolso Cuero Artesanal" loading="lazy">
+                <div class="product-card-badges"><span class="badge-promo">-20%</span></div>
+                <div class="product-card-actions">
+                  <button class="btn-icon" data-wishlist aria-label="Agregar a favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                </div>
+                <button class="product-card-add" data-add-to-cart aria-label="Agregar al carrito">
+                  <i class="bi bi-bag-plus me-1" aria-hidden="true"></i> Agregar
+                </button>
+              </div>
+              <div class="product-card-body">
+                <div class="product-card-category">Mujer / Bolsos</div>
+                <h3 class="product-card-name"><a href="product.html" class="text-decoration-none text-reset">Bolso Cuero Artesanal</a></h3>
+                <div class="product-card-price">
+                  <span class="price-current">$3,450</span>
+                  <span class="price-original">$4,300</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-main" role="contentinfo">
+    <div class="container">
+      <div class="row gx-5 gy-4">
+        <div class="col-12 col-md-4">
+          <div class="footer-brand">NEX<span>O</span></div>
+          <p class="footer-tagline">Moda con propósito. Cada pieza pensada para durar y destacar.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="footer-heading">Tienda</div>
+          <a href="index.html" class="footer-link">Inicio</a>
+          <a href="product.html" class="footer-link">Productos</a>
+          <a href="#" class="footer-link">Ofertas</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <div class="footer-heading">Ayuda</div>
+          <a href="#" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Devoluciones</a>
+          <a href="#" class="footer-link">Envíos</a>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="footer-heading">Newsletter</div>
+          <form id="newsletter-form" novalidate class="d-flex gap-2" aria-label="Suscripción newsletter">
+            <input type="email" class="newsletter-input flex-1" placeholder="tu@correo.com" required aria-label="Email">
+            <button type="submit" class="btn-primary-custom flex-shrink-0" style="padding:0.6rem 1rem;">OK</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 NEXO Store.</p>
+        <div class="payment-icons" aria-label="Métodos de pago">
+          <span class="payment-icon">VISA</span>
+          <span class="payment-icon">MC</span>
+          <span class="payment-icon">OXXO</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <div id="toast-container" class="fixed bottom-5 right-5 z-[9999] flex flex-col gap-2" aria-live="polite"></div>
+  <!-- Scroll to top -->
+  <button class="scroll-to-top" aria-label="Ir al inicio de la página">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
 
+  <!-- Modal Galería -->
+  <div class="modal fade modal-gallery" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body position-relative">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar galería"></button>
+          <img src="" alt="Vista ampliada del producto" id="gallery-modal-image" style="max-height:80vh;width:100%;object-fit:contain;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999;" aria-live="polite" aria-atomic="true">
+    <div id="main-toast" class="toast align-items-center border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2">
+          <i id="toast-icon" class="bi bi-check-circle-fill text-success me-1" aria-hidden="true"></i>
+          <div>
+            <strong id="toast-title" class="d-block"></strong>
+            <span id="toast-message"></span>
+          </div>
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    // ─── Alpine.js component para el detalle de producto ───
-    function productDetail() {
-      return {
-        qty: 1,
-        selectedSize: '',
-        selectedColor: 'Blanco',
-        activeImage: 'https://placehold.co/600x600/e0f7f7/0ea5a4?text=Sneakers',
-        activeAlt: 'Sneakers E-Brumpa Air — vista principal',
-        images: [
-          { src: 'https://placehold.co/600x600/e0f7f7/0ea5a4?text=Vista+1', alt: 'Sneakers E-Brumpa Air — vista lateral' },
-          { src: 'https://placehold.co/600x600/f1f5f9/1f2937?text=Vista+2', alt: 'Sneakers E-Brumpa Air — vista frontal' },
-          { src: 'https://placehold.co/600x600/1f2937/ffffff?text=Vista+3', alt: 'Sneakers E-Brumpa Air — suela' },
-          { src: 'https://placehold.co/600x600/faf8f5/0ea5a4?text=Vista+4', alt: 'Sneakers E-Brumpa Air — detalle interior' },
-        ],
-        colors: [
-          { name: 'Blanco', value: 'blanco', hex: '#f8fafc' },
-          { name: 'Negro', value: 'negro', hex: '#1f2937' },
-          { name: 'Teal', value: 'teal', hex: '#0ea5a4' },
-        ],
-        sizes: ['23', '24', '25', '26', '27', '28', '29', '30'],
-        setImage(img) {
-          this.activeImage = img.src;
-          this.activeAlt = img.alt;
-        },
-        openModal(src) {
-          const modal = document.getElementById('image-modal');
-          const img = document.getElementById('modal-image');
-          img.src = src;
-          modal.classList.remove('hidden');
-          modal.classList.add('flex');
-          document.body.style.overflow = 'hidden';
-        },
-        handleAddToCart() {
-          if (!this.selectedSize) {
-            showToast('Por favor selecciona una talla', 'warning');
-            return;
-          }
-          addToCart({
-            id: 1,
-            name: 'Sneakers E-Brumpa Air',
-            price: 1299,
-            image: this.activeImage,
-            qty: this.qty,
-            variant: `Talla ${this.selectedSize} / ${this.selectedColor}`
-          });
-        }
-      }
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('image-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-
-    // Cerrar modal con ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-    // Cerrar modal al clic en fondo
-    document.getElementById('image-modal').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
-  </script>
 </body>
 </html>
